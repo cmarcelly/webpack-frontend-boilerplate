@@ -1,20 +1,25 @@
 {
-  "name": "webpack-frontend-boilerplate",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cmarcelly/webpack-frontend-boilerplate.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/cmarcelly/webpack-frontend-boilerplate/issues"
-  },
-  "homepage": "https://github.com/cmarcelly/webpack-frontend-boilerplate#readme"
-}
+    "name": "webpack-frontend-boilerplate",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/cmarcelly/webpack-frontend-boilerplate.git"
+    },
+    "keywords": [
+        "webpack",
+        "webpack 5",
+        "webpack boilerplate"
+    ],
+    "author": "Cédric Marcelly",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/cmarcelly/webpack-frontend-boilerplate/issues"
+    },
+    "homepage": "https://github.com/cmarcelly/webpack-frontend-boilerplate#readme"
+  }
+  
