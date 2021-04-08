@@ -20,6 +20,9 @@
     "bugs": {
         "url": "https://github.com/cmarcelly/webpack-frontend-boilerplate/issues"
     },
-    "homepage": "https://github.com/cmarcelly/webpack-frontend-boilerplate#readme"
-  }
-  
+    "homepage": "https://github.com/cmarcelly/webpack-frontend-boilerplate#readme",
+    "dependencies": {
+        "webpack": "^5.31.0",
+        "webpack-nano": "^1.1.1"
+    }
+}
