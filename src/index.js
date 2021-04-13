@@ -1,6 +1,2 @@
-import component from './component';
+import app from './scripts/app';
 import './styles/main.scss';
-
-document.body.appendChild(component());
-
-let foo = 'bar';

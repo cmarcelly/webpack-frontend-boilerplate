@@ -1,18 +1,13 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { merge } = require('webpack-merge');
+const common = require('./webpack.common.js');
 
-module.exports = {
+module.exports = merge(common, {
     mode: 'development',
-    entry: './src/index.js',
     devServer: {
         contentBase: './dist',
     },
     module: {
         rules: [
-            {
-                test: /\.m?js$/,
-                exclude: /node_modules/,
-                use: ['babel-loader'],
-            },
             {
                 test: /\.(scss|css)$/,
                 use: [
@@ -28,14 +23,6 @@ module.exports = {
         ]
     },
     devtool: 'inline-source-map',
-    plugins: [
-        new HtmlWebpackPlugin({
-            title: 'Development'
-        }),
-    ],
-    output: {
-        filename: 'main.js',
-        path: __dirname + '/dist',
-    },
-};
+    plugins: [],
+});
     
