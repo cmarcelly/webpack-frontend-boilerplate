@@ -1,6 +1,7 @@
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 
 const paths = require('./paths');
 
@@ -31,6 +32,9 @@ module.exports = merge(common, {
         new MiniCssExtractPlugin({
             filename: 'styles/[name].[contenthash].css',
             chunkFilename: '[id].css',
+        }),
+        new WebpackManifestPlugin({
+            filter: (file) => file.path.match(/\.(css|js)$/),
         }),
     ],
     output: {
