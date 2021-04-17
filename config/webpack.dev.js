@@ -1,10 +1,12 @@
 const { merge } = require('webpack-merge');
+const paths = require('./paths.js');
 const common = require('./webpack.common.js');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 
 module.exports = merge(common, {
     mode: 'development',
     devServer: {
-        contentBase: './dist',
+        contentBase: paths.build,
     },
     module: {
         rules: [
@@ -23,6 +25,20 @@ module.exports = merge(common, {
         ]
     },
     devtool: 'inline-source-map',
-    plugins: [],
+    plugins: [
+        new BrowserSyncPlugin(
+        {
+            host: 'localhost',
+            port: 3000,
+            // server: { baseDir: [paths.build] }
+            proxy: 'http://localhost:8080/'
+        },
+        {
+            // prevent BrowserSync from reloading the page
+            // and let Webpack Dev Server take care of this
+            reload: false,
+            injectCss: true,
+        })
+    ],
 });
     
