@@ -23,8 +23,8 @@ module.exports = {
         new CopyWebpackPlugin({
             patterns: [
                 {
-                    from: paths.media,
-                    to: 'assets',
+                    from: paths.src_media,
+                    to: paths.build_media,
                     globOptions: {
                         ignore: ['*.DS_Store'],
                     },

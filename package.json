@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
-    "watch": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js"
+    "dev": "cross-env NODE_ENV=development webpack --config config/webpack.dev.js",
+    "watch": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js",
+    "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js"
   },
   "repository": {
     "type": "git",

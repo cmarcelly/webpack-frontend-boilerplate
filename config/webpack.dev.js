@@ -1,6 +1,7 @@
 const { merge } = require('webpack-merge');
 const paths = require('./paths.js');
 const common = require('./webpack.common.js');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 module.exports = merge(common, {
@@ -14,7 +15,7 @@ module.exports = merge(common, {
             {
                 test: /\.(scss|css)$/,
                 use: [
-                    'style-loader',
+                    MiniCssExtractPlugin.loader,
                     {
                         loader: 'css-loader',
                         options: { sourceMap: true, importLoaders: 1, modules: true },
@@ -27,6 +28,10 @@ module.exports = merge(common, {
     },
     devtool: 'inline-source-map',
     plugins: [
+        new MiniCssExtractPlugin({
+            filename: 'styles/[name].css',
+            chunkFilename: '[id].css',
+        }),
         new BrowserSyncPlugin(
         {
             host: 'localhost',

@@ -8,7 +8,8 @@ module.exports = {
     build: path.resolve(__dirname, '../dist'),
 
     // Media files
-    media: path.resolve(__dirname, '../src/assets/img'),
+    src_media: path.resolve(__dirname, '../src/assets/img'),
+    build_media: path.resolve(__dirname, '../dist/assets/img'),
 
     // Static files that get copied to build folder
     public: path.resolve(__dirname, '../public'),
