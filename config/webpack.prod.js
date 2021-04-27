@@ -38,8 +38,6 @@ module.exports = merge(common, {
         }),
     ],
     output: {
-        path: paths.build,
-        publicPath: '/',
         filename: 'scripts/[name].[contenthash].bundle.js',
     },
 });

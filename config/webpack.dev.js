@@ -1,12 +1,13 @@
 const { merge } = require('webpack-merge');
 const paths = require('./paths.js');
 const common = require('./webpack.common.js');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 module.exports = merge(common, {
     mode: 'development',
     devServer: {
         contentBase: paths.build,
+        writeToDisk: true,
     },
     module: {
         rules: [
@@ -40,5 +41,8 @@ module.exports = merge(common, {
             injectCss: true,
         })
     ],
+    output: {
+        filename: 'scripts/[name].bundle.js',
+    },
 });
     
