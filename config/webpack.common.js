@@ -8,7 +8,7 @@ const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const paths = require('./paths');
 
 module.exports = {
-    entry: [paths.src + '/scripts/app.js', paths.src + '/styles/main.scss'],
+    entry: [paths.src + '/styles/main.scss', paths.src + '/scripts/app.js'],
     module: {
         rules: [
             {

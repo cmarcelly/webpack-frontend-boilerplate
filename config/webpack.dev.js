@@ -30,7 +30,6 @@ module.exports = merge(common, {
     plugins: [
         new MiniCssExtractPlugin({
             filename: 'styles/[name].css',
-            chunkFilename: '[id].css',
         }),
         new BrowserSyncPlugin(
         {
