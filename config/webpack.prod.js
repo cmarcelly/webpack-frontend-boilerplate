@@ -35,14 +35,30 @@ module.exports = merge(common, {
             filename: 'styles/[name].[contenthash].css',
         }),
         new ImageminPlugin({ 
-            cacheFolder: path.resolve('./cache'),
+            cacheFolder: path.resolve('./.cache'),
             test: /\.(jpe?g|png|gif|svg)$/i,
+            gifsicle: { 
+                optimizationLevel: 3 
+            },
+            optipng: { 
+                optimizationLevel: 7 
+            },
             pngquant: {
-                quality: '65-80'
+                quality: '65-90', 
+                speed: 4,
+            },
+            svgo: {
+                plugins: [
+                    { cleanupIDs: false },
+                    { cleanupAttrs: false },
+                    { removeViewBox: false },
+                    { removeUnknownsAndDefaults: false },
+                    { removeUselessDefs: false },
+                ],
             },
             plugins: [
                 ImageminMozjpeg({
-                    quality: 60,
+                    quality: 75,
                     progressive: true
                 })
             ]

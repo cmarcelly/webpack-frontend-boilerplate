@@ -23,7 +23,7 @@ module.exports = {
         new CopyWebpackPlugin({
             patterns: [
                 {
-                    from: paths.src_media,
+                    from: paths.src_media + '/**/*',
                     to: paths.build_media + '/[name][ext]',
                     globOptions: {
                         ignore: ['*.DS_Store', paths.src_media + '/**/*.json'],
