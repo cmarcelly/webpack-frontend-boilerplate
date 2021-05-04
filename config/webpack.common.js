@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const ImageminWebpWebpackPlugin= require('imagemin-webp-webpack-plugin');
+const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
 
 const paths = require('./paths');
 
@@ -17,7 +18,7 @@ module.exports = {
                 exclude: /node_modules/,
                 use: ['babel-loader'],
             },
-        ]
+        ],
     },
     plugins: [
         new CleanWebpackPlugin(),
@@ -27,7 +28,7 @@ module.exports = {
                     from: paths.src_media + '/**/*',
                     to: paths.build_media + '/[name][ext]',
                     globOptions: {
-                        ignore: ['*.DS_Store', paths.src_media + '/**/*.json'],
+                        ignore: ['*.DS_Store', paths.src_media + '/svg/icons/**/*.svg', paths.src_media + '/**/*.json'],
                     },
                     noErrorOnMissing: true,
                 },
@@ -45,8 +46,20 @@ module.exports = {
                 detailedLogs: false,
                 silent: false,
                 strict: true,
-            }
+            },
         ]),
+        new SVGSpritemapPlugin(
+            paths.src_media + '/svg/icons/**/*.svg',
+            {
+                output: {
+                    filename: paths.spritemap + '/spritemap.svg',
+                    chunk: {
+                        name: 'spritemap.svg',
+                    },
+                    svgo: true,
+                }, 
+            },
+        ),
         new WebpackManifestPlugin({
             filter: (file) => file.path.match(/\.(css|js)$/),
         }),
