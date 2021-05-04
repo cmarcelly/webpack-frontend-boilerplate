@@ -4,6 +4,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
+const ImageminWebpWebpackPlugin= require('imagemin-webp-webpack-plugin');
 
 const paths = require('./paths');
 
@@ -32,6 +33,20 @@ module.exports = {
                 },
             ],
         }),
+        new ImageminWebpWebpackPlugin([
+            {
+                config: [{
+                    test: /\.(jpe?g|png)/,
+                    options: {
+                        quality: 75
+                    }
+                }],
+                overrideExtension: true,
+                detailedLogs: false,
+                silent: false,
+                strict: true,
+            }
+        ]),
         new WebpackManifestPlugin({
             filter: (file) => file.path.match(/\.(css|js)$/),
         }),
