@@ -56,7 +56,15 @@ module.exports = {
                     chunk: {
                         name: 'spritemap.svg',
                     },
-                    svgo: true,
+                    svgo: {
+                        plugins: [
+                            { cleanupIDs: false },
+                            { cleanupAttrs: false },
+                            { removeViewBox: false },
+                            { removeUnknownsAndDefaults: false },
+                            { removeUselessDefs: false },
+                        ],
+                    },
                 }, 
             },
         ),
