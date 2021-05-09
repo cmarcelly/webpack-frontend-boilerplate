@@ -36,7 +36,8 @@ module.exports = merge(common, {
         }),
         new ImageminPlugin({ 
             cacheFolder: path.resolve('./.cache'),
-            test: /\.(jpe?g|png|gif|svg)$/i,
+            // test: /\.(jpe?g|png|gif|svg)$/i,
+            test: 'lossy/**',
             gifsicle: { 
                 optimizationLevel: 3 
             },
