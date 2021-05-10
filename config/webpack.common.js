@@ -36,6 +36,7 @@ module.exports = {
                 },
             ],
         }),
+        // TODO: Exclude files that comes from the "lossless" directory
         new ImageminWebpWebpackPlugin([
             {
                 config: [{
