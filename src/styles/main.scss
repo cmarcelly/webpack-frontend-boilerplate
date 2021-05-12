@@ -1,4 +1,14 @@
+@font-face {
+  src: url('../assets/fonts/PlayfairDisplay-Medium.woff2') format('woff2'),
+    url('../assets/fonts/PlayfairDisplay-Medium.woff') format('woff');
+  font-family: 'PlayfairDisplay Medium';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
 body {
+  font-family: 'PlayfairDisplay Medium';
   background: black;
   border: solid 18px white;
 
