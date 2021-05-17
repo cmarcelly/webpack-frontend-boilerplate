@@ -13,6 +13,9 @@ module.exports = {
     // Media Files Build Folder
     build_media: path.resolve(__dirname, '../dist/assets/img'),
 
+    // Favicons Build Folder
+    build_favicon: path.resolve(__dirname, '../dist/assets/favicons'),
+
     // Spritemap Relative Path
     spritemap: '/assets/img',
 }

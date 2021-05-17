@@ -4,6 +4,7 @@ const common = require('./webpack.common.js');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const ImageminMozjpeg = require('imagemin-mozjpeg');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 const paths = require('./paths');
 
@@ -18,6 +19,7 @@ module.exports = merge(common, {
                     {
                         loader: 'css-loader',
                         options: {
+                            url: false,
                             importLoaders: 2,
                             sourceMap: false,
                             modules: true,
@@ -62,6 +64,38 @@ module.exports = merge(common, {
                     progressive: true
                 })
             ]
+        }),
+        new FaviconsWebpackPlugin({
+            logo: paths.src_media + '/favicons/favicon.png',
+            cache: path.resolve('./.cache'),
+            outputPath: paths.build_favicon,
+            mode: 'webapp',
+            favicons: {
+                appName: '',
+                appShortName: '',
+                theme_color: '#FFFFFF',
+                icons: {
+                    'android': [
+                        'android-chrome-192x192.png',
+                        'android-chrome-512x512.png',
+                    ],
+                    'appleIcon': [
+                        'apple-touch-icon-180x180.png',
+                    ],
+                    'favicons': [
+                        'favicon.ico',
+                        'favicon-16x16.png',
+                        'favicon-32x32.png',
+                    ],
+                    'windows': [
+                        'mstile-150x150.png',
+                    ],
+                    appleStartup: false,
+                    coast: false,
+                    firefox: false,
+                    yandex: false
+                }
+            },
         }),
     ],
     output: {

@@ -18,10 +18,6 @@ module.exports = {
                 exclude: /node_modules/,
                 use: ['babel-loader'],
             },
-            { 
-                test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
-                type: 'asset/inline',
-            },
         ],
     },
     plugins: [
@@ -34,7 +30,7 @@ module.exports = {
                     from: paths.src_media + '/**/*',
                     to: paths.build_media + '/[name][ext]',
                     globOptions: {
-                        ignore: ['*.DS_Store', paths.src_media + '/svg/icons/**/*.svg', paths.src_media + '/**/*.json'],
+                        ignore: ['*.DS_Store', paths.src_media + '/svg/icons/**/*.svg', paths.src_media + '/favicons/**/*', paths.src_media + '/**/*.json'],
                     },
                     noErrorOnMissing: true,
                 },
@@ -57,7 +53,7 @@ module.exports = {
                         quality: 75
                     }
                 }],
-                overrideExtension: true,
+                overrideExtension: false,
                 detailedLogs: false,
                 silent: false,
                 strict: true,
