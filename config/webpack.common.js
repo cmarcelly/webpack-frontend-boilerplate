@@ -4,20 +4,32 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
-const ImageminWebpWebpackPlugin= require('imagemin-webp-webpack-plugin');
 const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 const paths = require('./paths');
 
 module.exports = {
-    entry: [paths.src + '/styles/main.scss', paths.src + '/scripts/app.js'],
+    entry: [
+        paths.src + '/styles/main.scss',
+        paths.src + '/scripts/app.js',
+        // paths.src + '/index.js'
+    ],
     module: {
         rules: [
             {
                 test: /\.m?js$/,
                 exclude: /node_modules/,
                 use: ['babel-loader'],
+            },
+            {
+                test: /\.njk$/,
+                use: [
+                    {
+                        loader: 'simple-nunjucks-loader',
+                        options: {}
+                    }
+                ]
             },
         ],
     },
@@ -45,21 +57,6 @@ module.exports = {
                 },
             ],
         }),
-        // TODO: Exclude files that comes from the "lossless" directory
-        new ImageminWebpWebpackPlugin([
-            {
-                config: [{
-                    test: /\.(jpe?g|png)/,
-                    options: {
-                        quality: 75
-                    }
-                }],
-                overrideExtension: false,
-                detailedLogs: false,
-                silent: false,
-                strict: true,
-            },
-        ]),
         new SVGSpritemapPlugin(
             paths.src_media + '/svg/icons/**/*.svg',
             {
@@ -83,7 +80,12 @@ module.exports = {
         new WebpackManifestPlugin({
             filter: (file) => file.path.match(/\.(css|js)$/),
         }),
-        new HtmlWebpackPlugin(),
+        new HtmlWebpackPlugin({
+            template: path.resolve('./src/views/index.njk'),
+            templateParameters: {
+                username: 'Joe'
+            }
+        }),
         new FaviconsWebpackPlugin({
             logo: paths.src_media + '/favicons/favicon.png',
             cache: path.resolve('./.cache'),
