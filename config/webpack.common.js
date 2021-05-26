@@ -13,7 +13,6 @@ module.exports = {
     entry: [
         paths.src + '/styles/main.scss',
         paths.src + '/scripts/app.js',
-        // paths.src + '/index.js'
     ],
     module: {
         rules: [
@@ -27,7 +26,13 @@ module.exports = {
                 use: [
                     {
                         loader: 'simple-nunjucks-loader',
-                        options: {}
+                        options: {
+                            tags: {
+                                // Prevent Conflicts with Vue Data Binding
+                                variableStart: '<$',
+                                variableEnd: '$>'
+                            },
+                        }
                     }
                 ]
             },
@@ -80,12 +85,20 @@ module.exports = {
         new WebpackManifestPlugin({
             filter: (file) => file.path.match(/\.(css|js)$/),
         }),
-        new HtmlWebpackPlugin({
-            template: path.resolve('./src/views/index.njk'),
+        // new HtmlWebpackPlugin({
+        //     template: path.resolve('./src/views/index.njk'),
+        //     templateParameters: {
+        //         title: 'Joe'
+        //     }
+        // }),
+        ...require('fast-glob').sync('*.njk', {cwd: `${paths.src}/views/`}).map(
+        (file) => new HtmlWebpackPlugin({
+            template: `${paths.src}/views/` + file,
+            filename: file.split('.')[0] + '.html',
             templateParameters: {
-                username: 'Joe'
+                title: 'Joe'
             }
-        }),
+        })),
         new FaviconsWebpackPlugin({
             logo: paths.src_media + '/favicons/favicon.png',
             cache: path.resolve('./.cache'),

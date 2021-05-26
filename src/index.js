@@ -1,1 +1,0 @@
-var tpl = require('./views/index.njk');
