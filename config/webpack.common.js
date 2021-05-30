@@ -4,6 +4,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
@@ -61,6 +62,19 @@ module.exports = {
                     noErrorOnMissing: true,
                 },
             ],
+        }),
+        new ImageminPlugin({ 
+            cacheFolder: path.resolve('./.cache'),
+            test: /\.(svg)$/i,
+            svgo: {
+                plugins: [
+                    { cleanupIDs: false },
+                    { cleanupAttrs: false },
+                    { removeViewBox: false },
+                    { removeUnknownsAndDefaults: false },
+                    { removeUselessDefs: false },
+                ],
+            },
         }),
         new SVGSpritemapPlugin(
             paths.src_media + '/svg/icons/**/*.svg',
