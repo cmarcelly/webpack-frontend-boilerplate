@@ -1,5 +1,5 @@
-export default (text = 'Hello world') => {
-  const element = document.createElement('h1')
-  // element.innerHTML = text
+export default (text = 'John') => {
+  const element = document.createElement('h2')
+  element.innerHTML = 'Hello ' + text
   return element
 }
