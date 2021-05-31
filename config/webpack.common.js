@@ -110,7 +110,7 @@ module.exports = {
             template: `${paths.src}/views/` + file,
             filename: file.split('.')[0] + '.html',
             templateParameters: {
-                title: 'Joe'
+                title: 'John Doe’s Website'
             }
         })),
         new FaviconsWebpackPlugin({
