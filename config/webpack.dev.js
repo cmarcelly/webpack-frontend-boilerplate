@@ -22,7 +22,7 @@ module.exports = merge(common, {
                             url: false,
                             sourceMap: true, 
                             importLoaders: 1, 
-                            modules: true 
+                            modules: false 
                         },
                     },
                     { loader: 'postcss-loader', options: { sourceMap: true } },
