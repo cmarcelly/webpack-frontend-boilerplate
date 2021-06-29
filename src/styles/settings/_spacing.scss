@@ -1,0 +1,10 @@
+$spacing-default: $baseline;
+
+$spacing-extra: (
+    -x2 : $baseline * 2,
+    -x3 : $baseline * 3,
+    -x4 : $baseline * 4,
+    -x5 : $baseline * 5,
+    -x6 : $baseline * 6,
+    -x7 : $baseline * 7,
+)

@@ -1,19 +1,44 @@
-@font-face {
-  src: url('../assets/fonts/PlayfairDisplay-Medium.woff2') format('woff2'),
-    url('../assets/fonts/PlayfairDisplay-Medium.woff') format('woff');
-  font-family: 'PlayfairDisplay Medium';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-}
+// Settings
+@import "settings/baseline";
+@import "settings/core";
+@import "settings/color";
+@import "settings/type";
+@import "settings/spacing";
 
-body {
-  font-family: 'PlayfairDisplay Medium';
-  background: gray;
-  border: solid 18px white;
+// Tools
+@import "tools/core";
+@import "tools/breakpoint";
+@import "tools/ms";
+@import "tools/rtl";
+@import "tools/type";
 
-  h1 {
-    display: flex;
-    color: white;
-  }
-}
+// Base
+@import "base/initialize";
+// @import "base/type";
+
+// Objects
+@import "objects/container";
+@import "objects/grid";
+@import "objects/list";
+@import "objects/type";
+@import "objects/media";
+
+// Components
+// @import "components/button";
+
+// Utilities
+@import "utilities/align";
+@import "utilities/bgcolor";
+@import "utilities/clearfix";
+@import "utilities/color";
+@import "utilities/display";
+@import "utilities/float";
+@import "utilities/margin";
+@import "utilities/opacity";
+@import "utilities/padding";
+@import "utilities/pull";
+@import "utilities/push";
+@import "utilities/size";
+@import "utilities/text";
+@import "utilities/transform";
+@import "utilities/weight";

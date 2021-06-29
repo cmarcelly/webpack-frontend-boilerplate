@@ -1,0 +1,15 @@
+$iota-objs-container-size-default: (
+    null : none,
+    sm   : 540px,
+    md   : 720px,
+    lg   : 960px,
+    xl   : 1140px,
+    xxl  : 1320px
+);
+
+$iota-objs-container-gutter-default: (
+    null : 10px,
+    sm   : 20px
+);
+
+@import '../modules/iotacss-objs-container/objects.container';
