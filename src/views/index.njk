@@ -1,5 +1,21 @@
 {% extends 'src/views/layouts/_base.njk' %}
 
 {% block content %}
-    <h1>Welcome to index</h1>
+    <section>
+        <div class="o-container">
+            <h1 class="o-type-80 u-bgcolor-black u-color-blue u-mb-x7 u-p-x4">Welcome to index</h1>
+        </div>
+    </section>
+    <section>
+        <div class="o-container">
+            <div class="o-grid o-grid--rev@md">
+                <div class="o-grid__col u-1/1 u-1/2@md">
+                    <span class="o-type-small">col 1</span>
+                </div>
+                <div class="o-grid__col u-1/1 u-1/2@md">
+                    col 2
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}
