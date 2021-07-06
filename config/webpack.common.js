@@ -99,16 +99,11 @@ module.exports = {
         new WebpackManifestPlugin({
             filter: (file) => file.path.match(/\.(css|js)$/),
         }),
-        // new HtmlWebpackPlugin({
-        //     template: path.resolve('./src/views/index.njk'),
-        //     templateParameters: {
-        //         title: 'Joe'
-        //     }
-        // }),
         ...require('fast-glob').sync('*.njk', {cwd: `${paths.src}/views/`}).map(
         (file) => new HtmlWebpackPlugin({
             template: `${paths.src}/views/` + file,
             filename: file.split('.')[0] + '.html',
+            minify: false,
             templateParameters: {
                 title: 'John Doe’s Website'
             }
@@ -149,7 +144,7 @@ module.exports = {
     ],
     output: {
         path: paths.build,
-        publicPath: '/',
+        publicPath: '',
     },
 };
     
