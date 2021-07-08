@@ -5,15 +5,19 @@
     <meta charset="utf-8">
     <title><$ title $></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {# <meta name="description" content="<$ meta.description $>">
-    <meta name="keywords" content="<$ meta.keywords $>">
-    <meta name="author" content="<$ meta.author $>">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
 
-    <meta property="og:type" content="<$ meta.og_type $>">
-    <meta property="og:title" content="<$ meta.og_title $>">
-    <meta property="og:description" content="<$ meta.og_description $>" />  
-    <meta property="og:url" content="<$ meta.og_url $>">
-    <meta property="og:image" content="<$ meta.og_image $>"> #}
+    <meta property="og:type" content="">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="" />  
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+
+    {% if(svgFavicon) %}
+    <link rel="icon" type="image/svg+xml" href="<$ svgFavicon $>">
+    {% endif %}
     
 </head>
 

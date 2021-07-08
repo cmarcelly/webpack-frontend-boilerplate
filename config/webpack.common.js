@@ -31,7 +31,7 @@ module.exports = {
                             tags: {
                                 // Prevent Conflicts with Vue Data Binding
                                 variableStart: '<$',
-                                variableEnd: '$>'
+                                variableEnd: '$>',
                             },
                         }
                     }
@@ -56,6 +56,14 @@ module.exports = {
                 {
                     from: paths.src + '/assets/fonts/**/*',
                     to: paths.build + '/assets/fonts/[name][ext]',
+                    globOptions: {
+                        ignore: ['*.DS_Store'],
+                    },
+                    noErrorOnMissing: true,
+                },
+                {
+                    from: paths.src_media + '/favicons/favicon.svg',
+                    to: paths.build_favicon,
                     globOptions: {
                         ignore: ['*.DS_Store'],
                     },
@@ -105,7 +113,8 @@ module.exports = {
             filename: file.split('.')[0] + '.html',
             minify: false,
             templateParameters: {
-                title: 'John Doe’s Website'
+                title: 'John Doe’s Website',
+                svgFavicon: paths.svgFavicon,
             }
         })),
         new FaviconsWebpackPlugin({
