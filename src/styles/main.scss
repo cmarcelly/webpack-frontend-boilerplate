@@ -1,46 +1,167 @@
-// Settings
-@import "settings/baseline";
-@import "settings/core";
-@import "settings/color";
-@import "settings/font";
-@import "settings/type";
-@import "settings/spacing";
+/* ==========================================================================
+   INUITCSS
+   ========================================================================== */
 
-// Tools
-@import "tools/core";
-@import "tools/breakpoint";
-@import "tools/ms";
-@import "tools/rtl";
-@import "tools/type";
-@import "tools/image";
+/**
+ * inuitcss, by @csswizardry
+ *
+ * github.com/inuitcss | inuitcss.com
+ */
 
-// Base
-@import "base/initialize";
-// @import "base/type";
+/**
+ * This is an example inuitcss manifest file. DO NOT MODIFY THIS FILE DIRECTLY.
+ * Instead, copy and paste it into your own CSS directory and make additions,
+ * extensions, and modifications there.
+ */
 
-// Objects
-@import "objects/container";
-@import "objects/grid";
-@import "objects/list";
-@import "objects/type";
-@import "objects/media";
+/**
+ * CONTENTS
+ *
+ * SETTINGS
+ * Config...............Project-level configuration and feature switches.
+ * Core.................inuitcss’ core and setup settings.
+ * Global...............Project-wide variables and settings.
+ *
+ * TOOLS
+ * Font-size............A mixin which guarantees baseline-friendly line-heights.
+ * Clearfix.............Micro clearfix mixin.
+ * Hidden...............Mixin for hiding elements.
+ * Sass MQ..............inuitcss’ default media query manager.
+ *
+ * GENERIC
+ * Box-sizing...........Better default `box-sizing`.
+ * Normalize.css........A level playing field using @necolas’ Normalize.css.
+ * Reset................A tiny reset to complement Normalize.css.
+ * Shared...............Sensibly and tersely share some global commonalities
+ *                      (particularly useful when managing vertical rhythm).
+ *
+ * ELEMENTS
+ * Page.................Set up our document’s default `font-size` and
+ *                      `line-height`.
+ * Headings.............Very minimal (i.e. only font-size information) for
+ *                      headings 1 through 6.
+ * Images...............Base image styles.
+ * Tables...............Simple table styles.
+ *
+ * OBJECTS
+ * Wrapper..............Page constraint object.
+ * Layout...............Generic layout module.
+ * Media................Image- and text-like content side by side. The
+ *                      poster-child of OOCSS.
+ * Flag.................Table-layout-based advancement on the Media object.
+ * List-bare............Lists with no bullets or indents.
+ * List-inline..........A list whose items all site in a line.
+ * Box..................Simple boxing abstraction.
+ * Block................Image-on-top-of-text object.
+ * Ratio................A container for maintaining aspect ratio of content.
+ * Crop.................Provide a cropping context for media (images, etc.).
+ * Table................Classes for manipulating `table`s.
+ * Pack.................Pack items into available horizontal space.
+ *
+ * COMPONENTS
+ * Buttons..............An example button component, and how it fits into the
+ *                      inuitcss framework.
+ *
+ * UTILITIES
+ * Clearfix.............Bind our clearfix onto a utility class.
+ * Widths...............Simple width helper classes.
+ * Headings.............Reassigning our heading styles to helper classes.
+ * Spacings.............Nudge bits of the DOM around with these spacing
+ *                      classes.
+ * Responsive-Spacings..Enhances the function of normal spacings for
+ *                      responsive usage.
+ * Print................Reset-like styles taken from the HTML5 Boilerplate.
+ * Hide.................Helper classes to hide content
+ */
 
-// Components
-// @import "components/button";
+// SETTINGS
+@import "settings/settings.eases";
+@import "settings/settings.colors";
+@import "settings/settings.config";
+@import "settings/settings.core";
+@import "settings/settings.global";
 
-// Utilities
-@import "utilities/align";
-@import "utilities/bgcolor";
-@import "utilities/clearfix";
-@import "utilities/color";
-@import "utilities/display";
-@import "utilities/float";
-@import "utilities/margin";
-@import "utilities/opacity";
-@import "utilities/padding";
-@import "utilities/pull";
-@import "utilities/push";
-@import "utilities/size";
-@import "utilities/text";
-@import "utilities/transform";
-@import "utilities/weight";
+
+
+
+
+// TOOLS
+@import "tools/tools.functions";
+@import "tools/tools.mixins";
+@import "tools/tools.fonts";
+@import "tools/tools.font-size";
+@import "tools/tools.clearfix";
+@import "tools/tools.hidden";
+@import "tools/tools.mq";
+// @import "tools/tools.family";
+
+
+
+
+
+// GENERIC
+@import "generic/generic.box-sizing";
+@import "generic/generic.normalize";
+@import "generic/generic.reset";
+@import "generic/generic.shared";
+@import "generic/generic.media";
+@import "generic/generic.form";
+@import "generic/generic.button";
+
+
+
+
+
+// ELEMENTS
+@import "elements/elements.fonts";
+@import "elements/elements.page";
+@import "elements/elements.headings";
+@import "elements/elements.images";
+@import "elements/elements.tables";
+
+
+
+
+
+// OBJECTS
+//
+// Uncomment and add to this section as necessary.
+@import "objects/objects.container";
+@import "objects/objects.layout";
+@import "objects/objects.media";
+@import "objects/objects.flag";
+@import "objects/objects.list-bare";
+@import "objects/objects.list-inline";
+@import "objects/objects.box";
+@import "objects/objects.block";
+@import "objects/objects.ratio";
+@import "objects/objects.crop";
+@import "objects/objects.table";
+@import "objects/objects.pack";
+
+
+
+
+
+// COMPONENTS
+//
+// Build and include your project’s UI components here.
+@import "components/example.components.buttons";
+
+
+
+
+
+// UTILITIES
+@import "utilities/utilities.clearfix";
+
+// Be aware that enabling offsets produces a large chunk of classes which might
+// bloat your CSS, depending of the amount of breakpoints you defined.
+// Only set this to `true` if you are absolutely sure about what you are doing.
+$inuit-offsets: true;
+@import "utilities/utilities.widths";
+@import "utilities/utilities.headings";
+@import "utilities/utilities.spacings";
+@import "utilities/utilities.responsive-spacings";
+@import "utilities/utilities.print";
+@import "utilities/utilities.hide";

@@ -1,0 +1,116 @@
+///* ========================================================================
+//   #GLOBAL
+//   ======================================================================== */
+
+// The global settings file contains any project-wide variables; things that
+// need to be made available to the entire codebase.
+
+
+
+// Standardise some UI treatments.
+
+$global-radius: 3px !default;
+$global-transition: all 300ms ease-in-out !default;
+
+// Path is relative to the stylesheets directory.
+$assets-path: "../"  !default;
+
+// Typefaces
+// =============================================================================
+$font-sans-serif: sans-serif;
+
+// Typography
+// =============================================================================
+// Base
+$font-size:   16px;
+$max-font-size: 18px;
+$line-height: 24px / $font-size;
+$font-family: $font-sans-serif;
+$color:       #222222;
+
+// Breakpoints for media queries
+// ==========================================================================
+$mq-breakpoints: (
+    mobile:  576px,
+    tablet:  768px,
+    desktop: 992px,
+    wide:    1200px,
+    huge:    1400px
+);
+
+// Fluid typography
+// Global settings for fluid typography mixin
+// =============================================================================
+$min-width: map-get($mq-breakpoints, 'mobile');
+$max-width: map-get($mq-breakpoints, 'huge');
+$min-font: 16px;
+$max-font: 18px;
+
+$headings-font-sizes: (
+  'h1': (
+    'min': 48px,
+    'max': 54px
+  ),
+  'h2': (
+    'min': 40px,
+    'max': 45px
+  ),
+  'h3': (
+    'min': 33px,
+    'max': 37px
+  ),
+  'h4': (
+    'min': 28px,
+    'max': 31px
+  ),
+  'h5': (
+    'min': 23px,
+    'max': 26px
+  ),
+  'h6': (
+    'min': 19px,
+    'max': 22px
+  )
+);
+
+// Weights
+$font-weight-light:  300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-bold:   700;
+
+// Transitions
+// =============================================================================
+$speed:  0.3s;
+$easing: $power2EaseOut;
+
+// Spacing Units
+// =============================================================================
+$unit:       60px;
+$unit-small: 30px;
+
+// Container
+// ==========================================================================
+$inuit-container-width: 2000px;
+$padding:         $unit;
+
+// Breakpoints for fluid typography
+// =============================================================================
+$from-tiny:     500px              !default;
+$to-tiny:       $from-tiny - 1     !default;
+$from-small:    700px              !default;
+$to-small:      $from-small - 1    !default;
+$from-medium:   1000px             !default;
+$to-medium:     $from-medium - 1   !default;
+$from-large:    1200px             !default;
+$to-large:      $from-large - 1    !default;
+$from-big:      1400px             !default;
+$to-big:        $from-big - 1      !default;
+$from-huge:     1600px             !default;
+$to-huge:       $from-huge - 1     !default;
+$from-enormous: 1800px             !default;
+$to-enormous:   $from-enormous - 1 !default;
+$from-gigantic: 2000px             !default;
+$to-gigantic:   $from-gigantic - 1 !default;
+$from-colossal: 2400px             !default;
+$to-colossal:   $from-colossal - 1 !default; 

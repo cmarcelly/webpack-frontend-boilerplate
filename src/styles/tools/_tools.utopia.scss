@@ -1,0 +1,115 @@
+/// https://hugogiraudel.com/2013/10/09/advanced-sass-list-functions-again/
+
+@function remove-duplicates($list, $recursive: false) {  
+    $result: ();  
+    @each $item in $list {    
+      @if not index($result, $item) {      
+        @if length($item) > 1 and $recursive {        
+          $result: append($result, remove-duplicates($item, $recursive));      
+        } @else {        
+          $result: append($result, $item);      
+        }    
+      }  
+    }  
+    @return $result;
+  }
+  
+  $defaults: (
+    "small": (min-width: 320px), 
+    "medium": (min-width: 750px),
+    "large": (min-width: 1000px),
+    "xlarge": (min-width: 1300px),
+    "pointer": (pointer: fine) and (hover: hover),
+    "touch": (pointer: coarse) and (hover: none)
+  );
+  
+  $queries: ()!default;
+  /// Original mixins https://css-tricks.com/snippets/sass/mixin-manage-breakpoints/
+  
+  /// @author Davide Marchet
+  /// @param {String} $query - Query name
+  /// @require $queries
+  
+  @mixin react($query) {
+    $merged: map-merge($defaults, $queries);
+    @if map-has-key($merged, $query) {
+      @media #{inspect(map-get($merged, $query))} {
+        @content;
+      }
+    }
+    @else {
+      @warn "No value could be retrieved from `#{$query}`. "
+          + "Available queries are: #{map-keys(map-merge($defaults, $queries))}.";
+    }
+  }
+  
+  /// Create responsive rules based on queries
+  /// @author Davide Marchet
+  /// @param {List} $properties - Key:value list, name is required ('name': 'css property', 'small': value, medium: value, [...])
+  /// @require react
+  
+  @mixin resp($properties...) {
+    $queriesList: ();
+  
+    @each $property in $properties {
+        $queries: map-remove($property, 'name');
+        @each $brekpoint in map-keys($queries) {
+          $queriesList: append($queriesList, $brekpoint, $separator: comma);
+        }
+    }
+  
+    $queriesList: remove-duplicates($queriesList);
+  
+    @each $query in $queriesList {
+      @include react(#{$query}){
+        @each $property in $properties {
+          @if map-has-key($property, 'name') {
+            @if map-has-key($property, $query) {
+              #{map-get($property, 'name')}: #{map-get($property, $query)};
+            }
+          }
+          @else {
+            @error "Property 'name' is required.";
+          }
+        }
+      }
+    }
+  }
+  
+  /// Inspired by https://www.bronco.co.uk/our-ideas/creating-a-clamp-fallback-function-in-sass-scss/
+  /// Create clamp rules and fallback for old browser
+  /// @author Davide Marchet
+  /// @param {String} $property - Css property name
+  /// @param {List} $sizes - Clamp values (min scaler max, min scaler max, [...])
+  
+  @mixin fluid($property, $sizes...) {
+    $staticValues: ();
+    $minMaxValues: ();
+    $clampValues: ();
+    @if length($sizes) <= 4 {
+      @each $size in $sizes {
+        $values: ();
+    
+        @each $value in $size {
+          $values: append($values, $value, $separator: comma);
+        }
+        @if length($values) < 3  {
+          $staticValues: append($staticValues, $values);
+          $minMaxValues: append($minMaxValues, $values);
+          $clampValues: append($clampValues, $values);
+        } @else  {
+          $staticValues: append($staticValues, #{nth($values, 3)});
+          $minMaxValues: append($minMaxValues, #{"min(max(#{nth($values, 1)}, #{nth($values, 2)}), #{nth($values, 3)})"});
+          $clampValues: append($clampValues, clamp(#{$values}));
+        }
+        
+      }
+      
+      #{$property}: $staticValues;
+      #{$property}: $minMaxValues;
+      #{$property}: $clampValues;
+    }
+    @else {
+      @error "Sizes must be <= 4";
+    }
+}

@@ -1,3 +1,0 @@
-@function _iota-is-map($map) {
-  @return type-of($map) == 'map'
-}

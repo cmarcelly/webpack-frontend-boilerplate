@@ -1,0 +1,22 @@
+/* ==========================================================================
+   #CONTAINER
+   ========================================================================== */
+
+/**
+ * Page-level constraining and wrapping elements.
+ */
+
+$inuit-container-width: 1200px !default;
+
+@if (type-of($inuit-container-width) != number) {
+  @error "`#{$inuit-container-width}` needs to be a number.";
+}
+
+.o-container {
+  @include inuit-clearfix();
+  padding-right: $inuit-global-spacing-unit;
+  padding-left:  $inuit-global-spacing-unit;
+  margin-right: auto;
+  margin-left:  auto;
+  max-width: $inuit-container-width;
+}

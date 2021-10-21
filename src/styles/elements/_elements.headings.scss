@@ -1,0 +1,40 @@
+/* ==========================================================================
+   #HEADINGS
+   ========================================================================== */
+
+/**
+ * Simple default styles for headings 1 through 6. Anything more opinionated
+ * than simple font-size changes should likely be applied via classes (see:
+ * http://csswizardry.com/2016/02/managing-typography-on-large-apps/).
+ */
+
+// We have all of our heading font sizes defined here. Passing these pixel
+// values into our `inuit-font-size()` mixin will generate a rem-based
+// `font-size` with a pixel fallback, as well as generating a `line-height` that
+// will sit on our baseline grid.
+// For fluid responsive design values
+// https://utopia.fyi/
+
+h1 {
+  @include fluid-type($min-width, $max-width, map-get($headings-font-sizes, 'h1', 'min'), map-get($headings-font-sizes, 'h1', 'max'));
+}
+
+h2 {
+  @include fluid-type($min-width, $max-width, map-get($headings-font-sizes, 'h2', 'min'), map-get($headings-font-sizes, 'h2', 'max'));
+}
+
+h3 {
+  @include fluid-type($min-width, $max-width, map-get($headings-font-sizes, 'h3', 'min'), map-get($headings-font-sizes, 'h3', 'max'));
+}
+
+h4 {
+  @include fluid-type($min-width, $max-width, map-get($headings-font-sizes, 'h4', 'min'), map-get($headings-font-sizes, 'h4', 'max'));
+}
+
+h5 {
+  @include fluid-type($min-width, $max-width, map-get($headings-font-sizes, 'h5', 'min'), map-get($headings-font-sizes, 'h5', 'max'));
+}
+
+h6 {
+  @include fluid-type($min-width, $max-width, map-get($headings-font-sizes, 'h6', 'min'), map-get($headings-font-sizes, 'h6', 'max'));
+}

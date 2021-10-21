@@ -1,7 +1,0 @@
-@mixin _iota-breakpoint($size, $breakpoints: $iota-global-breakpoints) {
-  $breakpoint: map-get($breakpoints, $size);
-
-  @media #{$breakpoint} {
-    @content;
-  }
-}
