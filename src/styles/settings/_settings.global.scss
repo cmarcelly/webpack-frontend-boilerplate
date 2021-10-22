@@ -23,8 +23,8 @@ $font-sans-serif: sans-serif;
 // =============================================================================
 // Base
 $font-size:   16px;
-$max-font-size: 18px;
-$line-height: 24px / $font-size;
+$max-font-size: 24px;
+$line-height: $max-font-size / $font-size;
 $font-family: $font-sans-serif;
 $color:       #222222;
 
@@ -35,41 +35,40 @@ $mq-breakpoints: (
     tablet:  768px,
     desktop: 992px,
     wide:    1200px,
-    huge:    1400px
+    huge:    1400px,
+    enormous: 2500px
 );
 
 // Fluid typography
 // Global settings for fluid typography mixin
 // =============================================================================
-$min-width: map-get($mq-breakpoints, 'mobile');
-$max-width: map-get($mq-breakpoints, 'huge');
-$min-font: 16px;
-$max-font: 18px;
+$min-bp: map-get($mq-breakpoints, 'mobile');
+$max-bp: map-get($mq-breakpoints, 'enormous');
 
 $headings-font-sizes: (
   'h1': (
-    'min': 48px,
-    'max': 54px
+    'min': 46px,
+    'max': 66px
   ),
   'h2': (
-    'min': 40px,
-    'max': 45px
+    'min': 38px,
+    'max': 48px
   ),
   'h3': (
-    'min': 33px,
-    'max': 37px
+    'min': 28px,
+    'max': 32px
   ),
   'h4': (
-    'min': 28px,
-    'max': 31px
+    'min': 22px,
+    'max': 28px
   ),
   'h5': (
-    'min': 23px,
+    'min': 18px,
     'max': 26px
   ),
   'h6': (
-    'min': 19px,
-    'max': 22px
+    'min': 16px,
+    'max': 24px
   )
 );
 
@@ -92,25 +91,4 @@ $unit-small: 30px;
 // Container
 // ==========================================================================
 $inuit-container-width: 2000px;
-$padding:         $unit;
-
-// Breakpoints for fluid typography
-// =============================================================================
-$from-tiny:     500px              !default;
-$to-tiny:       $from-tiny - 1     !default;
-$from-small:    700px              !default;
-$to-small:      $from-small - 1    !default;
-$from-medium:   1000px             !default;
-$to-medium:     $from-medium - 1   !default;
-$from-large:    1200px             !default;
-$to-large:      $from-large - 1    !default;
-$from-big:      1400px             !default;
-$to-big:        $from-big - 1      !default;
-$from-huge:     1600px             !default;
-$to-huge:       $from-huge - 1     !default;
-$from-enormous: 1800px             !default;
-$to-enormous:   $from-enormous - 1 !default;
-$from-gigantic: 2000px             !default;
-$to-gigantic:   $from-gigantic - 1 !default;
-$from-colossal: 2400px             !default;
-$to-colossal:   $from-colossal - 1 !default; 
+$padding: $unit;

@@ -16,25 +16,25 @@
 // https://utopia.fyi/
 
 h1 {
-  @include fluid-type($min-width, $max-width, map-get($headings-font-sizes, 'h1', 'min'), map-get($headings-font-sizes, 'h1', 'max'));
+  @include fluid-type($min-bp, $max-bp, map-get($headings-font-sizes, 'h1', 'min'), map-get($headings-font-sizes, 'h1', 'max'));
 }
 
 h2 {
-  @include fluid-type($min-width, $max-width, map-get($headings-font-sizes, 'h2', 'min'), map-get($headings-font-sizes, 'h2', 'max'));
+  @include fluid-type($min-bp, $max-bp, map-get($headings-font-sizes, 'h2', 'min'), map-get($headings-font-sizes, 'h2', 'max'));
 }
 
 h3 {
-  @include fluid-type($min-width, $max-width, map-get($headings-font-sizes, 'h3', 'min'), map-get($headings-font-sizes, 'h3', 'max'));
+  @include fluid-type($min-bp, $max-bp, map-get($headings-font-sizes, 'h3', 'min'), map-get($headings-font-sizes, 'h3', 'max'));
 }
 
 h4 {
-  @include fluid-type($min-width, $max-width, map-get($headings-font-sizes, 'h4', 'min'), map-get($headings-font-sizes, 'h4', 'max'));
+  @include fluid-type($min-bp, $max-bp, map-get($headings-font-sizes, 'h4', 'min'), map-get($headings-font-sizes, 'h4', 'max'));
 }
 
 h5 {
-  @include fluid-type($min-width, $max-width, map-get($headings-font-sizes, 'h5', 'min'), map-get($headings-font-sizes, 'h5', 'max'));
+  @include fluid-type($min-bp, $max-bp, map-get($headings-font-sizes, 'h5', 'min'), map-get($headings-font-sizes, 'h5', 'max'));
 }
 
 h6 {
-  @include fluid-type($min-width, $max-width, map-get($headings-font-sizes, 'h6', 'min'), map-get($headings-font-sizes, 'h6', 'max'));
+  @include fluid-type($min-bp, $max-bp, map-get($headings-font-sizes, 'h6', 'min'), map-get($headings-font-sizes, 'h6', 'max'));
 }

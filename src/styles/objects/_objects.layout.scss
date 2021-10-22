@@ -70,44 +70,41 @@ $inuit-use-markup-fix: false !default;
  */
 
 .o-layout {
-  display: block; /* [1] */
+  display: flex;
+  flex-wrap: wrap;
   margin:  0; /* [2] */
   padding: 0; /* [2] */
   list-style: none; /* [1] */
   margin-left: -$inuit-global-spacing-unit; /* [3] */
-
-  @if ($inuit-use-markup-fix == false) {
-    font-size: 0;
-  }
-
 }
 
-  /**
-   * 1. Required in order to combine fluid widths with fixed gutters.
-   * 2. Allows us to manipulate grids vertically, with text-level properties,
-   *    etc.
-   * 3. Default item alignment is with the tops of each other, like most
-   *    traditional grid/layout systems.
-   * 4. By default, all layout items are full-width (mobile first).
-   * 5. Gutters provided by left padding:
-   *    http://csswizardry.com/2011/08/building-better-grid-systems/
-   * 6. Fallback for old IEs not supporting `rem` values.
-   */
+/**
+  * 1. Required in order to combine fluid widths with fixed gutters.
+  * 2. Allows us to manipulate grids vertically, with text-level properties,
+  *    etc.
+  * 3. Default item alignment is with the tops of each other, like most
+  *    traditional grid/layout systems.
+  * 4. By default, all layout items are full-width (mobile first).
+  * 5. Gutters provided by left padding:
+  *    http://csswizardry.com/2011/08/building-better-grid-systems/
+  * 6. Fallback for old IEs not supporting `rem` values.
+  */
 
-  .o-layout__item {
-    box-sizing: border-box; /* [1] */
-    display: inline-block; /* [2] */
-    vertical-align: top; /* [3] */
-    width: 100%; /* [4] */
-    padding-left: $inuit-global-spacing-unit; /* [5] */
+.o-layout__item {
+  padding-left: $inuit-global-spacing-unit; /* [5] */
 
-    @if ($inuit-use-markup-fix == false) {
-      // font-size: $inuit-global-font-size; /* [6] */
-      // font-size: 1rem;
-      @include fluid-type($min-width, $max-width, $min-font, $max-font);
-    }
-
+  &.o-layout--center {
+    justify-content: center;
   }
+
+  &.o-layout--right {
+    justify-content: flex-end;
+  }
+
+  &.o-layout--left {
+    justify-content: flex-start;
+  }
+}
 
 
 
@@ -164,71 +161,6 @@ $inuit-use-markup-fix: false !default;
   }
 
 }
-
-
-
-
-
-/* Vertical alignment modifiers
-   ========================================================================== */
-
-/**
- * Align all grid items to the middles of each other.
- */
-
-.o-layout--middle {
-
-  > .o-layout__item {
-    vertical-align: middle;
-  }
-
-}
-
-
-/**
- * Align all grid items to the bottoms of each other.
- */
-
-.o-layout--bottom {
-
-  > .o-layout__item {
-    vertical-align: bottom;
-  }
-
-}
-
-
-/**
- * Stretch all grid items of each row to have an equal-height.
- * Please be aware that this modifier class doesn’t take any effect in IE9 and
- * below and other older browsers due to the lack of `display: flex` support.
- */
-
-.o-layout--stretch {
-  display: flex;
-  flex-wrap: wrap;
-
-  > .o-layout__item {
-    display: flex;
-  }
-
-  &.o-layout--center {
-    justify-content: center;
-  }
-
-  &.o-layout--right {
-    justify-content: flex-end;
-  }
-
-  &.o-layout--left {
-    justify-content: flex-start;
-  }
-
-}
-
-
-
-
 
 /* Fill order modifiers
    ========================================================================== */

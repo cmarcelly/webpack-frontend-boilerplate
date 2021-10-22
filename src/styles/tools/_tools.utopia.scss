@@ -1,3 +1,51 @@
+// ==========================================================================
+// From Awesome NPM Package https://github.com/DidoMarchet/scss-utopia
+// Covering most developer needs in terms of typography, spacing and sizes ([...]) 
+// in the simplest and automated possible way!
+// ==========================================================================
+
+// Media query usage examples
+// =======================================
+// @include react('medium'){
+//   body{
+//     background: black;
+//   }
+// }
+// a {
+//   @include react('pointer'){
+//     &:hover{
+//       color: red;
+//     }
+//   }
+// }
+
+// Automate responsive rules examples
+//  =======================================
+// p {
+//   font-size: 1rem;
+//   @include resp(
+//     (
+//       'name': 'font-size',
+//       'medium': 1.15rem,
+//       'large': 1.35rem,
+//       'xlarge': 1.5rem
+//     ),
+//     (
+//       'name': 'margin',
+//       'medium': 25px 50px,
+//       'xlarge': 50px 100px
+//     )
+//   );
+// }
+
+// Automate fluid rules examples
+//  =======================================
+// p {
+//   @include fluid('font-size', 1rem 5vw 3rem);
+//   @include fluid('margin', 100px 10vw 200px, 150px 25vw 300px);
+//   @include fluid('padding', 100px 10vw 200px, 20px, 100px 10vw 200px);
+// }
+
 /// https://hugogiraudel.com/2013/10/09/advanced-sass-list-functions-again/
 
 @function remove-duplicates($list, $recursive: false) {  

@@ -12,25 +12,25 @@
  */
 
 .u-h1 {
-  @include fluid-type($min-width, $max-width, 48px, 54px);
+  @include fluid-type($min-bp, $max-bp, 48px, 54px);
 }
 
 .u-h2 {
-  @include fluid-type($min-width, $max-width, 40px, 45px);
+  @include fluid-type($min-bp, $max-bp, 40px, 45px);
 }
 
 .u-h3 {
-  @include fluid-type($min-width, $max-width, 33px, 37px);
+  @include fluid-type($min-bp, $max-bp, 33px, 37px);
 }
 
 .u-h4 {
-  @include fluid-type($min-width, $max-width, 28px, 31px);
+  @include fluid-type($min-bp, $max-bp, 28px, 31px);
 }
 
 .u-h5 {
-  @include fluid-type($min-width, $max-width, 23px, 26px);
+  @include fluid-type($min-bp, $max-bp, 23px, 26px);
 }
 
 .u-h6 {
-  @include fluid-type($min-width, $max-width, 19px, 22px);
+  @include fluid-type($min-bp, $max-bp, 19px, 22px);
 }

@@ -15,8 +15,8 @@
  */
 
 html {
-  @include fluid-type($min_width, $max_width, $min_font, $max_font);
-  line-height: $inuit-global-line-height / $inuit-global-font-size; /* [1] */
+  @include fluid-type($min-bp, $max-bp, $font-size, $max-font-size);
+  line-height: $line-height; /* [1] */
   overflow-y: scroll; /* [2] */
   min-height: 100%; /* [3] */
   -webkit-font-smoothing: antialiased;
