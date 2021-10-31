@@ -1,36 +1,36 @@
 /* ==========================================================================
-   #HEADINGS
-   ========================================================================== */
+  #HEADINGS
+  ========================================================================== */
 
 /**
- * Redefine all of our basic heading styles against utility classes so as to
- * allow for double stranded heading hierarchy, e.g. we semantically need an H2,
- * but we want it to be sized like an H1:
- *
- *   <h2 class="u-h1"></h2>
- *
- */
+* Redefine all of our basic heading styles against utility classes so as to
+* allow for double stranded heading hierarchy, e.g. we semantically need an H2,
+* but we want it to be sized like an H1:
+*
+*   <h2 class="u-h1"></h2>
+*
+*/
 
 .u-h1 {
-  @include fluid-type($min-bp, $max-bp, 48px, 54px);
+  @include fluid-type($min-bp, $max-bp, map-get($headings-font-sizes, 'h1', 'min'), map-get($headings-font-sizes, 'h1', 'max'));
 }
 
 .u-h2 {
-  @include fluid-type($min-bp, $max-bp, 40px, 45px);
+  @include fluid-type($min-bp, $max-bp, map-get($headings-font-sizes, 'h2', 'min'), map-get($headings-font-sizes, 'h2', 'max'));
 }
 
 .u-h3 {
-  @include fluid-type($min-bp, $max-bp, 33px, 37px);
+  @include fluid-type($min-bp, $max-bp, map-get($headings-font-sizes, 'h3', 'min'), map-get($headings-font-sizes, 'h3', 'max'));
 }
 
 .u-h4 {
-  @include fluid-type($min-bp, $max-bp, 28px, 31px);
+  @include fluid-type($min-bp, $max-bp, map-get($headings-font-sizes, 'h4', 'min'), map-get($headings-font-sizes, 'h4', 'max'));
 }
 
 .u-h5 {
-  @include fluid-type($min-bp, $max-bp, 23px, 26px);
+  @include fluid-type($min-bp, $max-bp, map-get($headings-font-sizes, 'h5', 'min'), map-get($headings-font-sizes, 'h5', 'max'));
 }
 
 .u-h6 {
-  @include fluid-type($min-bp, $max-bp, 19px, 22px);
+  @include fluid-type($min-bp, $max-bp, map-get($headings-font-sizes, 'h6', 'min'), map-get($headings-font-sizes, 'h6', 'max'));
 }

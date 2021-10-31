@@ -76,6 +76,7 @@ $inuit-use-markup-fix: false !default;
   padding: 0; /* [2] */
   list-style: none; /* [1] */
   margin-left: -$inuit-global-spacing-unit; /* [3] */
+  position: relative;
 }
 
 /**
@@ -107,8 +108,12 @@ $inuit-use-markup-fix: false !default;
 }
 
 
+/* Vertical centered layout items
+   ========================================================================== */
 
-
+.o-layout--vcenter {
+  align-items: center;
+}
 
 /* Gutter size modifiers
    ========================================================================== */
@@ -173,7 +178,7 @@ $inuit-use-markup-fix: false !default;
   text-align: center;
 
   > .o-layout__item {
-    text-align: left;
+    text-align: center;
   }
 
 }
@@ -187,7 +192,7 @@ $inuit-use-markup-fix: false !default;
   text-align: right;
 
   > .o-layout__item {
-    text-align: left;
+    text-align: right;
   }
 
 }

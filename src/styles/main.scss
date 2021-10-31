@@ -135,6 +135,7 @@
 @import "objects/objects.box";
 @import "objects/objects.block";
 @import "objects/objects.ratio";
+@import "objects/objects.responsive-ratio";
 @import "objects/objects.crop";
 @import "objects/objects.table";
 @import "objects/objects.pack";
@@ -146,7 +147,7 @@
 // COMPONENTS
 //
 // Build and include your project’s UI components here.
-@import "components/example.components.buttons";
+@import "components/components.buttons";
 
 
 
@@ -163,5 +164,6 @@ $inuit-offsets: true;
 @import "utilities/utilities.headings";
 @import "utilities/utilities.spacings";
 @import "utilities/utilities.responsive-spacings";
+@import "utilities/utilities.colors";
 @import "utilities/utilities.print";
 @import "utilities/utilities.hide";

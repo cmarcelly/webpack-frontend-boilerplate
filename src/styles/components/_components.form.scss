@@ -1,0 +1,170 @@
+// ==========================================================================
+// Form
+// ==========================================================================
+.c-form {
+
+}
+
+.c-form__item {
+    position: relative;
+    margin-bottom: rem(30px);
+}
+
+// Label
+// ==========================================================================
+.c-form__label {
+    display: block;
+    margin-bottom: rem(10px);
+}
+
+// Input
+// ==========================================================================
+$input-icon-color: 424242; // No #
+
+.c-form__input {
+    padding: rem(10px);
+    border: 1px solid lightgray;
+    background-color: white;
+
+    &:hover {
+        border-color: darkgray;
+    }
+
+    &:focus {
+        border-color: dimgray;
+    }
+
+    &::placeholder {
+        color: gray;
+    }
+}
+
+// Checkbox
+// ==========================================================================
+$checkbox: rem(18px);
+$checkbox-icon-color: $input-icon-color;
+
+.c-form__checkbox-label {
+    @extend .c-form__label;
+
+    position: relative;
+    display: inline-block;
+    margin-right: rem(10px);
+    margin-bottom: 0;
+    padding-left: ($checkbox + rem(10px));
+    cursor: pointer;
+
+    &::before, &::after {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        display: inline-block;
+        margin-top: (-$checkbox / 2);
+        padding: 0;
+        width: $checkbox;
+        height: $checkbox;
+        content: "";
+    }
+
+    &::before {
+        background-color: $white;
+        border: 1px solid lightgray;
+    }
+
+    &::after {
+        border-color: transparent;
+        background-color: transparent;
+        background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2213%22%20height%3D%2210.5%22%20viewBox%3D%220%200%2013%2010.5%22%20enable-background%3D%22new%200%200%2013%2010.5%22%20xml%3Aspace%3D%22preserve%22%3E%3Cpath%20fill%3D%22%23#{$checkbox-icon-color}%22%20d%3D%22M4.8%205.8L2.4%203.3%200%205.7l4.8%204.8L13%202.4c0%200-2.4-2.4-2.4-2.4L4.8%205.8z%22%2F%3E%3C%2Fsvg%3E");
+        background-position: center;
+        background-size: rem(12px);
+        background-repeat: no-repeat;
+        opacity: 0;
+    }
+
+    &:hover {
+        &::before {
+            border-color: darkgray;
+        }
+    }
+
+    .c-form__checkbox:focus + & {
+        &::before {
+            border-color: dimgray;
+        }
+    }
+
+    .c-form__checkbox:checked + & {
+        &::after {
+            opacity: 1;
+        }
+    }
+}
+
+.c-form__checkbox {
+    position: absolute;
+    width: 0;
+    opacity: 0;
+}
+
+// Radio
+// ==========================================================================
+$radio-icon-color: $input-icon-color;
+
+.c-form__radio-label {
+    @extend .c-form__checkbox-label;
+
+    &::before, &::after {
+        border-radius: 50%;
+    }
+
+    &::after {
+        background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2213%22%20height%3D%2213%22%20viewBox%3D%220%200%2013%2013%22%20enable-background%3D%22new%200%200%2013%2013%22%20xml%3Aspace%3D%22preserve%22%3E%3Ccircle%20fill%3D%22%23#{$radio-icon-color}%22%20cx%3D%226.5%22%20cy%3D%226.5%22%20r%3D%226.5%22%2F%3E%3C%2Fsvg%3E");
+        background-size: rem(6px);
+    }
+}
+
+.c-form__radio {
+    @extend .c-form__checkbox;
+}
+
+// Select
+// =============================================================================
+$select-icon: rem(40px);
+$select-icon-color: $input-icon-color;
+
+.c-form__select {
+    position: relative;
+    cursor: pointer;
+
+    &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2;
+        width: $select-icon;
+        background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2213%22%20height%3D%2211.3%22%20viewBox%3D%220%200%2013%2011.3%22%20enable-background%3D%22new%200%200%2013%2011.3%22%20xml%3Aspace%3D%22preserve%22%3E%3Cpolygon%20fill%3D%22%23#{$select-icon-color}%22%20points%3D%226.5%2011.3%203.3%205.6%200%200%206.5%200%2013%200%209.8%205.6%20%22%2F%3E%3C%2Fsvg%3E");
+        background-position: center;
+        background-size: rem(8px);
+        background-repeat: no-repeat;
+        content: "";
+        pointer-events: none;
+    }
+}
+
+.c-form__select-input {
+    @extend .c-form__input;
+
+    position: relative;
+    z-index: 1;
+    padding-right: $select-icon;
+    cursor: pointer;
+}
+
+// Textarea
+// =============================================================================
+.c-form__textarea {
+    @extend .c-form__input;
+
+    min-height: rem(200px);
+}

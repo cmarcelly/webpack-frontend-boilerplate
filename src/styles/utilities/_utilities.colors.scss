@@ -1,0 +1,33 @@
+/* ==========================================================================
+   #COLORS
+   ========================================================================== */
+
+/**
+ * Color utilities.
+ *
+ * Example classes:
+ * u-color-primary
+ * u-bg-color-primary
+ */
+
+$inuit-color-utilities: null !default;
+
+$inuit-color-properties: (
+    'color': 'color',
+    'bg-color': 'background-color',
+);
+
+$inuit-colors-variants: (
+    '-white': $white,
+    '-black': $black
+) !default;
+
+@if ($inuit-color-utilities != null) {
+    @each $selector, $property in $inuit-color-properties {
+        @each $color, $value in $inuit-colors-variants {
+            .u-#{$selector}#{$color} {
+            #{$property}: $value !important;
+            }
+        }
+    }
+}
