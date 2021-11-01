@@ -1,4 +1,4 @@
-# Webpack Frontend Boilerplate
+# :boom: Webpack Frontend Boilerplate :boom:
 
 ![Node](https://img.shields.io/badge/node-%3E%3D14.16.1-green)
 ![NPM](https://img.shields.io/badge/npm-%3E%3D7.13.0-blue)
