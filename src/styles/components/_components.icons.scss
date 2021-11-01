@@ -1,0 +1,40 @@
+.c-icon {
+    display: block;
+    width: 20px;
+    height: 20px;
+    transition: fill 300ms ease-in-out;
+}
+
+// Dimensions modifiers
+.c-icon--tiny {
+    width: 10px;
+    height: 10px;
+}
+
+.c-icon--small {
+    width: 14px;
+    height: 14px;
+}
+
+.c-icon--medium {
+    width: 40px;
+    height: 40px;
+}
+
+.c-icon--large {
+    width: 60px;
+    height: 60px;
+}
+
+// color modifiers
+.c-icon--white {
+    fill: $white;
+}
+
+// .c-icon--primary {
+//     fill: $primary-color;
+// }
+
+// .c-icon--secondary {
+//     fill: $secondary-color;
+// }
