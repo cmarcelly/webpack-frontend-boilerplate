@@ -131,8 +131,8 @@ src
 
 You will have to compress/optimize them before putting them in that folder. I recommand using Squoosh from Google Labs.
 
-[Squoosh Desktop App](https://squoosh-desktop.vercel.app/)
-[Squoosh Online Tool](https://squoosh.app/)
+[Squoosh Desktop App](https://squoosh-desktop.vercel.app/)  
+[Squoosh Online Tool](https://squoosh.app/)  
 [Squoosh CLI](https://github.com/GoogleChromeLabs/squoosh/tree/dev/cli), useful for batch compression and conversion.
 
 We use WEBP format for images, so you will have to use that tool to convert any JPG or PNG file into WEBP format. Use the `picture` tag in your markup.
