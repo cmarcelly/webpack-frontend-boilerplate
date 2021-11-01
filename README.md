@@ -1,9 +1,8 @@
-<h1 align="center">Webpack Frontend Boilerplate</h1>
+# Webpack Frontend Boilerplate
 
-<p align="center">
-<img src="https://img.shields.io/badge/node-%3E%3D14.16.1-green" alt="Node">
-<img src="https://img.shields.io/badge/npm-%3E%3D7.13.0-blue" alt="NPM">
-</p>
+![Node](https://img.shields.io/badge/node-%3E%3D14.16.1-green)
+![NPM](https://img.shields.io/badge/npm-%3E%3D7.13.0-blue)
+
 
 ## Requirements
 
