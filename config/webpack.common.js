@@ -46,16 +46,16 @@ module.exports = {
         new CopyWebpackPlugin({
             patterns: [
                 {
-                    from: paths.src_media + '/**/*',
-                    to: paths.build_media + '/[name][ext]',
+                    from: path.posix.join(path.resolve(paths.src_media).replace(/\\/g, "/"), "**/*"),
+                    to: path.resolve(paths.build_media, '[name][ext]'),
                     globOptions: {
                         ignore: ['*.DS_Store', paths.src_media + '/svg/icons/**/*.svg', paths.src_media + '/favicons/**/*', paths.src_media + '/**/*.json'],
                     },
                     noErrorOnMissing: true,
                 },
                 {
-                    from: paths.src + '/assets/fonts/**/*',
-                    to: paths.build + '/assets/fonts/[name][ext]',
+                    from: path.posix.join(path.resolve(paths.src).replace(/\\/g, "/"),'assets', 'fonts', "**/*"),
+                    to: path.resolve(paths.build, 'assets', 'fonts', '[name][ext]'),
                     globOptions: {
                         ignore: ['*.DS_Store'],
                     },
