@@ -24,6 +24,33 @@ $unit:       60px;
 $unit-small: 30px;
 
 // =============================================================================
+// Need responsive spacings utilities? Customize them here!
+// =============================================================================
+// $inuit-responsive-spacing-properties: (
+//   "padding": "padding",
+//   "margin": "margin",
+// );
+
+// $inuit-responsive-spacing-directions : (
+//   null: null,
+//   "-top": "-top",
+//   "-right": "-right",
+//   "-bottom": "-bottom",
+//   "-left": "-left",
+//   "-horizontal": "-left" "-right",
+//   "-vertical": "-top" "-bottom",
+// );
+
+// $inuit-responsive-spacing-sizes: (
+//   null: $inuit-global-spacing-unit,
+//   "-tiny": $inuit-global-spacing-unit-tiny,
+//   "-small": $inuit-global-spacing-unit-small,
+//   "-large": $inuit-global-spacing-unit-large,
+//   "-huge": $inuit-global-spacing-unit-huge,
+//   "-none": 0
+// );
+
+// =============================================================================
 // Container
 // =============================================================================
 $inuit-container-width: 2000px;
@@ -125,7 +152,7 @@ $easing: $power2EaseOut;
 $inuit-ratios: (
   "2\\:1"   : (2:1),
   "4\\:3"   : (4:3),
-  "16\\:9"  : (16:9),
+  "16\\:9"  : (16:9)
 );
 
 $inuit-responsive-ratios: null;
