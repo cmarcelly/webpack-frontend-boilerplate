@@ -42,6 +42,8 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin({
             cleanOnceBeforeBuildPatterns: ['**/*'],
+            protectWebpackAssets: false,
+            cleanAfterEveryBuildPatterns: ['**/*.LICENSE.txt'],
         }),
         new CopyWebpackPlugin({
             patterns: [
