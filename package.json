@@ -29,9 +29,11 @@
     "@babel/core": "^7.13.15",
     "@babel/preset-env": "^7.13.15",
     "@storybook/addon-actions": "6.3.12",
+    "@storybook/addon-docs": "6.3.12",
     "@storybook/addon-essentials": "6.3.12",
     "@storybook/addon-links": "6.3.12",
     "@storybook/addon-postcss": "2.0.0",
+    "@storybook/addon-viewport": "6.3.12",
     "@storybook/builder-webpack5": "6.3.12",
     "@storybook/html": "6.3.12",
     "@storybook/manager-webpack5": "6.3.12",
@@ -66,6 +68,5 @@
   "engines": {
     "node": ">=14.16.1",
     "npm": ">=7.13.0"
-  },
-  "dependencies": {}
+  }
 }
