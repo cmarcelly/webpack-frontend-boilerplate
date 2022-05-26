@@ -1,9 +1,9 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title><$ title $></title>
+    <title>My Awesome Website</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="keywords" content="">
@@ -11,14 +11,14 @@
 
     <meta property="og:type" content="">
     <meta property="og:title" content="">
-    <meta property="og:description" content="" />  
+    <meta property="og:description" content="">
     <meta property="og:url" content="">
     <meta property="og:image" content="">
 
     {% if(svgFavicon) %}
     <link rel="icon" type="image/svg+xml" href="<$ svgFavicon $>">
     {% endif %}
-    
+
 </head>
 
 <body>
@@ -27,6 +27,12 @@
 
         {% block content %}{% endblock %}
     </div>
+
+    {# Performance Stats?
+        {% if(env == 'development') %}
+            {% include 'src/views/utils/_stats.njk' %}
+        {% endif %}
+    #}
 </body>
 
 </html>

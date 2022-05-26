@@ -9,11 +9,11 @@
  $inuit-container-width: 1200px !default;
  $container-padding: 50px !default;
  $container-padding-mobile: 20px !default;
- 
+
  @if (type-of($inuit-container-width) != number) {
    @error "`#{$inuit-container-width}` needs to be a number.";
  }
- 
+
  .o-container {
    @include inuit-clearfix();
    padding-right: $container-padding-mobile;
@@ -23,9 +23,13 @@
    width: 100%;
    max-width: $inuit-container-width;
    position: relative;
- 
+
    @include mq($from: tablet) {
      padding-right: rem($container-padding);
      padding-left:  rem($container-padding);
    }
- }
+}
+
+.o-container--fluid {
+    max-width: 100%;
+}

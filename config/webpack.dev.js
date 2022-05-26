@@ -18,15 +18,20 @@ module.exports = merge(common, {
                     MiniCssExtractPlugin.loader,
                     {
                         loader: 'css-loader',
-                        options: { 
+                        options: {
                             url: false,
-                            sourceMap: true, 
-                            importLoaders: 1, 
-                            modules: false 
+                            sourceMap: true,
+                            importLoaders: 1,
+                            modules: false
                         },
                     },
                     { loader: 'postcss-loader', options: { sourceMap: true } },
-                    { loader: 'sass-loader', options: { sourceMap: true } },
+                    { loader: 'sass-loader',
+                        options: {
+                            sourceMap: true,
+                            additionalData: '$env: ' + process.env.SERVER_ENV + ';'
+                        }
+                    },
                 ],
             },
         ]
@@ -52,4 +57,3 @@ module.exports = merge(common, {
         filename: 'scripts/[name].bundle.js',
     },
 });
-    

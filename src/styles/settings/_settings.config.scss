@@ -5,20 +5,20 @@
 // A map of global config settings. Define any project-level configuration,
 // feature switches, etc. in here.
 
-$inuit-config: (
-  env: dev,
+$global-config: (
+  env: $env,
   healthcheck: false,
-  debug: true,
+  debug: false,
 );
 
 // You can access data in this map using the following function:
 //
-// inuit-config(<key>)
+// global-config(<key>)
 //
 // Example usage:
 //
-// @if (inuit-config(debug) == true) { ...  }
+// @if(global-config(debug) == true) { ...  }
 
-@function inuit-config($key) {
-  @return map-get($inuit-config, $key);
+@function global-config($key) {
+  @return map-get($global-config, $key);
 }

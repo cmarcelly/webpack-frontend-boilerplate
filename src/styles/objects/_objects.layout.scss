@@ -94,15 +94,15 @@ $inuit-use-markup-fix: false !default;
 .o-layout__item {
   padding-left: $inuit-global-spacing-unit; /* [5] */
 
-  &.o-layout--center {
+  &.o-layout__item--center {
     justify-content: center;
   }
 
-  &.o-layout--right {
+  &.o-layout__item--right {
     justify-content: flex-end;
   }
 
-  &.o-layout--left {
+  &.o-layout__item--left {
     justify-content: flex-start;
   }
 }
@@ -243,4 +243,49 @@ $inuit-use-markup-fix: false !default;
     width: auto;
   }
 
+}
+
+/* Media object
+   ========================================================================== */
+
+/**
+ * Media object is responsible for a common design pattern where there is a fixed and a fluid width column next to each other. It's used to build the structure of sidebars, comments, avatar and other similar UI components.
+ */
+
+.o-layout--media {
+
+    .o-layout__item {
+
+        &:last-child {
+            flex: 1;
+        }
+    }
+}
+
+/* Responsive flex orders modifiers
+   ========================================================================== */
+// Examples:
+// .o-layout__item--order-2
+// .o-layout__item--order-2@tablet
+
+$flex-orders: 1 2 3 !default;
+
+@if (variable-exists(mq-breakpoints)) {
+
+    @each $inuit-bp-name, $inuit-bp-value in $mq-breakpoints {
+
+        @each $numerator in $flex-orders {
+            .o-layout__item--order-#{$numerator} {
+                order: #{$numerator} !important;
+            }
+        }
+
+        @include mq($from: $inuit-bp-name) {
+            @each $numerator in $flex-orders {
+                .o-layout__item--order-#{$numerator}\@#{$inuit-bp-name} {
+                    order: #{$numerator} !important;
+                }
+            }
+        }
+    }
 }

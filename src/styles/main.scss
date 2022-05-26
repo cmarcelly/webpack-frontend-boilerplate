@@ -93,6 +93,7 @@
 @import "tools/tools.clearfix";
 @import "tools/tools.hidden";
 @import "tools/tools.mq";
+@import "tools/tools.color";
 // @import "tools/tools.family";
 
 
@@ -164,6 +165,8 @@ $inuit-offsets: true;
 @import "utilities/utilities.headings";
 @import "utilities/utilities.spacings";
 @import "utilities/utilities.responsive-spacings";
+@import "utilities/utilities.align";
 @import "utilities/utilities.colors";
 @import "utilities/utilities.print";
 @import "utilities/utilities.hide";
+@import "utilities/utilities.healthcheck";

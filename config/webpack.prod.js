@@ -23,7 +23,11 @@ module.exports = merge(common, {
                         },
                     },
                     'postcss-loader',
-                    'sass-loader',
+                    { loader: 'sass-loader',
+                        options: {
+                            additionalData: '$env: ' + process.env.SERVER_ENV + ';'
+                        }
+                    },
                 ],
             },
         ]
@@ -33,17 +37,17 @@ module.exports = merge(common, {
         new MiniCssExtractPlugin({
             filename: 'styles/[name].[contenthash].css',
         }),
-        // new ImageminPlugin({ 
+        // new ImageminPlugin({
         //     cacheFolder: path.resolve('./.cache'),
         //     test: /\.(jpe?g|png|gif|svg)$/i,
-        //     gifsicle: { 
-        //         optimizationLevel: 3 
+        //     gifsicle: {
+        //         optimizationLevel: 3
         //     },
-        //     optipng: { 
-        //         optimizationLevel: 7 
+        //     optipng: {
+        //         optimizationLevel: 7
         //     },
         //     pngquant: {
-        //         quality: '65-90', 
+        //         quality: '65-90',
         //         speed: 4,
         //     },
         //     svgo: {
@@ -67,4 +71,3 @@ module.exports = merge(common, {
         filename: 'scripts/[name].[contenthash].bundle.js',
     },
 });
-    

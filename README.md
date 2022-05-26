@@ -43,6 +43,11 @@ npm run dev
 ```
 
 ```sh
+# staging build
+npm run staging
+```
+
+```sh
 # production build
 npm run prod
 ```
@@ -55,6 +60,31 @@ npm run watch
 ```
 
 This command will run a local server using [Browsersync](https://browsersync.io/). Your pages will automatically refresh when you'll make a change in your code (HTML, SCSS, Javascript). It is very usefull for synchronised browser testing.
+
+## Environment variables
+
+We have 3 possible Node.js environment variables available depending on which build command you use (development | staging | production). That can be useful for conditional HTML display or conditional behaviors in Javascript and SCSS.
+
+```sh
+# Nunjucks
+{% if(env == 'development') %}
+    <h1>Hello development!</h1>
+{% endif %}
+```
+
+```sh
+# Javascript
+if(process.env.SERVER_ENV == 'development' {
+    // js stuff
+}
+```
+
+```sh
+# SCSS
+@if(global-config(env) == 'development') {
+    // scss stuff
+}
+```
 
 ## Scaffolding
 
@@ -208,3 +238,56 @@ src
 │   └───about.njk
 │   └───index.njk
 ```
+#### Components with Nunjunks Macro
+
+Nunjunks comes with specials functions to be called to render UI elements called Macros.
+We will see that macros can be used to define re-usable components across your pages.
+
+Here is an example of architecture where `text-image` is our component and `_services` is our 
+partial page that is used to call the macro component.
+```
+src   
+└───views
+│   └───components
+│   |   └───text-image.njk
+│   └───partials
+│   |   └───_services.njk
+```
+
+Assuming that we need a card component to be re-usable across some pages that will differ by title, text, link and text color. We can define a `card` component like this:
+
+```
+{% macro card(name, title, text, white=false) %}
+    <div class="<$ name $>">
+        <h1 class="<$ 'u-color-white' if white $>"><$ title $></h1>
+        <p class="<$ 'u-color-white' if white $>"><$ text $></p>
+        <div class="c-card__know-more">
+            <a href="#">
+                <span class="<$ 'u-color-white' if white $>">Know more</span>
+                {% if white %}
+                    {% include 'src/views/elements/_arrow-white.njk' %}
+                {% else %}
+                    {% include 'src/views/elements/_arrow-black.njk' %}
+                {% endif %}
+            </a>
+        </div>
+    </div>
+{% endmacro %}
+```
+
+This macro will be render dependings of those parameters. <br>
+We can easily choose the classname, title, text and decide if we need white or default (black) text color in this case.
+You can add up as much parameters but macro component still needs to stay light to be easily usable and customizable ( DRY principles )
+
+In any Nunjunks template or partials you can then add your import 
+
+`{% from "src/views/components/card.njk" import card %}`
+
+This will render a `c-card` component with `My title card`, `My custom text card` in a white color text
+
+Example:
+```
+    <$ card('c-card','My title card','My custom text card', true) $>
+```
+
+!!! Note <sub><sup>Note that `{{ }}` tags are not usable due to webpack/vueJS conflits tags. You must use `<$` and `$>` to use a macro. To define a macro you can use `{% %}`</sup></sub>

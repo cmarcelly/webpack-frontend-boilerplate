@@ -23,6 +23,7 @@ $inuit-global-spacing-unit-factor-small:  2 !default;   // 12px
 $inuit-global-spacing-unit-factor:        4 !default;   // 24px
 $inuit-global-spacing-unit-factor-large:  8 !default;   // 48px
 $inuit-global-spacing-unit-factor-huge:   16 !default;  // 96px
+$inuit-global-spacing-unit-factor-enormous:   32 !default;  // 192px
 
 
 
@@ -35,6 +36,7 @@ $inuit-global-spacing-unit-tiny:  $inuit-global-baseline * $inuit-global-spacing
 $inuit-global-spacing-unit-small: $inuit-global-baseline * $inuit-global-spacing-unit-factor-small !default;
 $inuit-global-spacing-unit-large: $inuit-global-baseline * $inuit-global-spacing-unit-factor-large !default;
 $inuit-global-spacing-unit-huge:  $inuit-global-baseline * $inuit-global-spacing-unit-factor-huge !default;
+$inuit-global-spacing-unit-enormous:  $inuit-global-baseline * $inuit-global-spacing-unit-factor-enormous !default;
 
 
 

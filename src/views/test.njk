@@ -1,0 +1,54 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <title>TEST</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+
+    <meta property="og:type" content="">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    <style>
+        .parent {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: black;
+        }
+
+        .child {
+            display: block;
+            flex: 1;
+            text-align: center;
+            padding: 40px;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .child:hover, .child:focus {
+            color: white;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+        <nav class="parent" data-parent>
+            <div class="child" data-child="red">Red</div>
+            <div class="child" data-child="green">Green</div>
+            <div class="child" data-child="blue">Blue</div>
+        </nav>
+
+    </div>
+</body>
+
+</html>

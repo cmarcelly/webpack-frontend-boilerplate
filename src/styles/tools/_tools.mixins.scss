@@ -205,3 +205,15 @@
     display: $display $important;
     visibility: visible  $important;
 }
+
+//
+// Mixin to maintain aspect-ratio
+//
+@mixin aspect-ratio($width, $height) {
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    height: auto;
+    padding-top: ($height / $width) * 100%;
+    position: relative;
+}

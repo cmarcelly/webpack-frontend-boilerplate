@@ -1,0 +1,37 @@
+// Text align utilities
+
+$inuit-align-directions: (
+  "left": left,
+  "right": right,
+  "center": center
+) !default;
+
+@each $direction-namespace, $direction-rules in $inuit-align-directions {
+
+    .u-text-#{$direction-namespace} {
+
+        text-align: $direction-rules !important;
+
+    }
+
+}
+
+// Responsive text align utilities
+
+@each $direction-namespace, $direction-rules in $inuit-align-directions {
+
+    @each $inuit-bp-name, $inuit-bp-value in $mq-breakpoints {
+
+        @include mq($from: $inuit-bp-name) {
+
+            .u-text-#{$direction-namespace}#{$inuit-widths-breakpoint-separator}#{$inuit-bp-name} {
+
+                text-align: $direction-rules !important;
+
+            }
+
+        }
+
+    }
+
+}

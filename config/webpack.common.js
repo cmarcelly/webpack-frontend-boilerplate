@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -40,6 +41,11 @@ module.exports = {
         ],
     },
     plugins: [
+        new webpack.DefinePlugin({
+            'process.env': {
+                'SERVER_ENV': JSON.stringify(process.env.SERVER_ENV)
+            }
+        }),
         new CleanWebpackPlugin({
             cleanOnceBeforeBuildPatterns: ['**/*'],
             protectWebpackAssets: false,
@@ -73,7 +79,7 @@ module.exports = {
                 },
             ],
         }),
-        new ImageminPlugin({ 
+        new ImageminPlugin({
             cacheFolder: path.resolve('./.cache'),
             test: /\.(svg)$/i,
             svgo: {
@@ -103,7 +109,7 @@ module.exports = {
                             { removeUselessDefs: false },
                         ],
                     },
-                }, 
+                },
             },
         ),
         new WebpackManifestPlugin({
@@ -115,7 +121,7 @@ module.exports = {
             filename: file.split('.')[0] + '.html',
             minify: false,
             templateParameters: {
-                title: 'John Doe’s Website',
+                env: process.env.SERVER_ENV,
                 svgFavicon: paths.svgFavicon,
             }
         })),
@@ -158,4 +164,3 @@ module.exports = {
         publicPath: '',
     },
 };
-    
