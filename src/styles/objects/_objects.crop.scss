@@ -8,7 +8,7 @@
 // The map keys are the strings used in the generated class names, and they can
 // follow any convention, as long as they are properly escaped strings. i.e.:
 //
-//   $inuit-crops: (
+//   $global-crops: (
 //     "2\\:1"         : (2:1),
 //     "4-by-3"        : (4:3),
 //     "full-hd"       : (16:9),
@@ -16,7 +16,7 @@
 //     "golden-ratio"  : (1.618:1) -> non-integers are okay
 //   ) !default;
 
-$inuit-crops: (
+$global-crops: (
   "2\\:1"   : (2:1),
   "4\\:3"   : (4:3),
   "16\\:9"  : (16:9)
@@ -124,7 +124,7 @@ $inuit-crops: (
  *
  */
 
-@each $crop-name, $crop-value in $inuit-crops {
+@each $crop-name, $crop-value in $global-crops {
 
   @each $antecedent, $consequent in $crop-value {
 

@@ -1,33 +1,33 @@
-$inuit-ratios-breakpoint-separator: \@ !default;
+$global-ratios-breakpoint-separator: \@ !default;
 
-$inuit-responsive-ratios: null !default;
+$global-responsive-ratios: null !default;
 
-@if ($inuit-responsive-ratios != null) {
+@if ($global-responsive-ratios != null) {
 
-    @each $ratio-name, $ratio-value in $inuit-responsive-ratios {
+    @each $ratio-name, $ratio-value in $global-responsive-ratios {
 
         @each $antecedent, $consequent in $ratio-value {
-        
+
             @if (type-of($antecedent) != number) {
                 @error "`#{$antecedent}` needs to be a number.";
             }
-        
+
             @if (type-of($consequent) != number) {
                 @error "`#{$consequent}` needs to be a number.";
             }
 
-            @each $inuit-bp-name, $inuit-bp-value in $mq-breakpoints {
+            @each $global-bp-name, $global-bp-value in $global-mq-breakpoints {
 
-                @include mq($from: $inuit-bp-name) {
+                @include mq($from: $global-bp-name) {
 
-                    .o-ratio--#{$ratio-name}#{$inuit-ratios-breakpoint-separator}#{$inuit-bp-name}:before {
+                    .o-ratio--#{$ratio-name}#{$global-ratios-breakpoint-separator}#{$global-bp-name}:before {
                         padding-bottom: ($consequent/$antecedent) * 100%;
                     }
 
                 }
 
             }
-      
+
         }
 
     }

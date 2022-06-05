@@ -74,7 +74,7 @@ We have 3 possible Node.js environment variables available depending on which bu
 
 ```sh
 # Javascript
-if(process.env.SERVER_ENV == 'development' {
+if(process.env.NODE_ENV == 'development' {
     // js stuff
 }
 ```

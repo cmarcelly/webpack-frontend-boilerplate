@@ -1,5 +1,5 @@
 ///* ========================================================================
-//   #GLOBAL
+//   GLOBAL
 //   ======================================================================== */
 
 // The global settings file contains any project-wide variables; things that
@@ -9,7 +9,7 @@
 // =============================================================================
 // Standardise some UI treatments.
 // =============================================================================
-$global-radius: 3px !default;
+$global-radius: 0px !default;
 $global-transition: all 300ms ease-in-out !default;
 
 // =============================================================================
@@ -18,20 +18,14 @@ $global-transition: all 300ms ease-in-out !default;
 $assets-path: "../assets/"  !default;
 
 // =============================================================================
-// Spacing Units
-// =============================================================================
-$unit:       60px;
-$unit-small: 30px;
-
-// =============================================================================
 // Need responsive spacings utilities? Customize them here!
 // =============================================================================
-// $inuit-responsive-spacing-properties: (
+// $global-responsive-spacing-properties: (
 //   "padding": "padding",
 //   "margin": "margin",
 // );
 
-// $inuit-responsive-spacing-directions : (
+// $global-responsive-spacing-directions : (
 //   null: null,
 //   "-top": "-top",
 //   "-right": "-right",
@@ -41,32 +35,37 @@ $unit-small: 30px;
 //   "-vertical": "-top" "-bottom",
 // );
 
-// $inuit-responsive-spacing-sizes: (
-//   null: $inuit-global-spacing-unit,
-//   "-tiny": $inuit-global-spacing-unit-tiny,
-//   "-small": $inuit-global-spacing-unit-small,
-//   "-large": $inuit-global-spacing-unit-large,
-//   "-huge": $inuit-global-spacing-unit-huge,
-//   "-enormous": $inuit-global-spacing-unit-enormous,
+// $global-responsive-spacing-sizes: (
+//   null: $global-spacing-unit,
+//   "-tiny": $global-spacing-unit-tiny,
+//   "-small": $global-spacing-unit-small,
+//   "-large": $global-spacing-unit-large,
+//   "-huge": $global-spacing-unit-huge,
+//   "-enormous": $global-spacing-unit-enormous,
 //   "-none": 0
 // );
 
 // =============================================================================
 // Container
 // =============================================================================
-$inuit-container-width: 2000px;
-$container-padding: 50px;
-$container-padding-mobile: 20px;
+$global-container-width: 2000px;
+$global-container-padding: 50px;
+$global-container-padding-mobile: 20px;
 
 // =============================================================================
 // Widths fractions
 // =============================================================================
-$inuit-fractions: 1 2 3 4 5;
+$global-fractions: 1 2 3 4 5;
+
+// Be aware that enabling offsets produces a large chunk of classes which might
+// bloat your CSS, depending of the amount of breakpoints you defined.
+// Only set this to `true` if you are absolutely sure about what you are doing.
+$global-offsets: true;
 
 // =============================================================================
 // Breakpoints for media queries
 // =============================================================================
-$mq-breakpoints: (
+$global-mq-breakpoints: (
     mobile:  576px,
     tablet:  768px,
     desktop: 992px,
@@ -92,9 +91,9 @@ $color:       #222222;
 // =============================================================================
 // Colors utilities
 // =============================================================================
-$inuit-color-utilities: true;
+$global-color-utilities: true;
 
-$inuit-colors-variants: (
+$global-colors-variants: (
     '-white': $white,
     '-black': $black
 );
@@ -103,8 +102,8 @@ $inuit-colors-variants: (
 // Fluid typography
 // Global settings for fluid typography mixin
 // =============================================================================
-$min-bp: map-get($mq-breakpoints, 'mobile');
-$max-bp: map-get($mq-breakpoints, 'enormous');
+$min-bp: map-get($global-mq-breakpoints, 'mobile');
+$max-bp: map-get($global-mq-breakpoints, 'enormous');
 
 $headings-font-sizes: (
   'h1': (
@@ -150,10 +149,10 @@ $easing: $power2EaseOut;
 // =============================================================================
 // Ratios
 // =============================================================================
-$inuit-ratios: (
+$global-ratios: (
   "2\\:1"   : (2:1),
   "4\\:3"   : (4:3),
   "16\\:9"  : (16:9)
 );
 
-$inuit-responsive-ratios: null;
+$global-responsive-ratios: null;

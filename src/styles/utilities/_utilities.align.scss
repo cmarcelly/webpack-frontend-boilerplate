@@ -1,12 +1,12 @@
 // Text align utilities
 
-$inuit-align-directions: (
+$global-align-directions: (
   "left": left,
   "right": right,
   "center": center
 ) !default;
 
-@each $direction-namespace, $direction-rules in $inuit-align-directions {
+@each $direction-namespace, $direction-rules in $global-align-directions {
 
     .u-text-#{$direction-namespace} {
 
@@ -18,13 +18,13 @@ $inuit-align-directions: (
 
 // Responsive text align utilities
 
-@each $direction-namespace, $direction-rules in $inuit-align-directions {
+@each $direction-namespace, $direction-rules in $global-align-directions {
 
-    @each $inuit-bp-name, $inuit-bp-value in $mq-breakpoints {
+    @each $global-bp-name, $global-bp-value in $global-mq-breakpoints {
 
-        @include mq($from: $inuit-bp-name) {
+        @include mq($from: $global-bp-name) {
 
-            .u-text-#{$direction-namespace}#{$inuit-widths-breakpoint-separator}#{$inuit-bp-name} {
+            .u-text-#{$direction-namespace}#{$global-breakpoint-separator}#{$global-bp-name} {
 
                 text-align: $direction-rules !important;
 

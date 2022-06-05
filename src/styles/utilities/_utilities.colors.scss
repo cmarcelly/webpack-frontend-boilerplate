@@ -10,21 +10,21 @@
  * u-bg-color-primary
  */
 
-$inuit-color-utilities: null !default;
+$global-color-utilities: null !default;
 
-$inuit-color-properties: (
+$global-color-properties: (
     'color': 'color',
     'bg-color': 'background-color',
 );
 
-$inuit-colors-variants: (
+$global-colors-variants: (
     '-white': $white,
     '-black': $black
 ) !default;
 
-@if ($inuit-color-utilities != null) {
-    @each $selector, $property in $inuit-color-properties {
-        @each $color, $value in $inuit-colors-variants {
+@if ($global-color-utilities != null) {
+    @each $selector, $property in $global-color-properties {
+        @each $color, $value in $global-colors-variants {
             .u-#{$selector}#{$color} {
             #{$property}: $value !important;
             }

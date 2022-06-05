@@ -1,5 +1,5 @@
 /* ==========================================================================
-   #PAGE
+   PAGE
    ========================================================================== */
 
 /**
@@ -15,24 +15,24 @@
  */
 
 html {
-  @include fluid-type($min-bp, $max-bp, $font-size, $max-font-size);
-  line-height: $line-height; /* [1] */
-  overflow-y: scroll; /* [2] */
-  min-height: 100%; /* [3] */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    @include fluid-type($min-bp, $max-bp, $font-size, $max-font-size);
+    line-height: $line-height; /* [1] */
+    overflow-y: scroll; /* [2] */
+    min-height: 100%; /* [3] */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background-color: $selection-background-color;
-  color: $selection-text-color;
-  text-shadow: none;
+    background-color: $selection-background-color;
+    color: $selection-text-color;
+    text-shadow: none;
 }
 
 a {
-  color: $link-color;
+    color: $link-color;
 
-  @include u-hocus {
-    color: $link-hover-color;
-  }
+    @include u-hocus {
+        color: $link-hover-color;
+    }
 }

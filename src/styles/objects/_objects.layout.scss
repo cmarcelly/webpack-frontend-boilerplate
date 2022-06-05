@@ -53,11 +53,7 @@
 // By default we use the `font-size: 0;` trick to remove whitespace between
 // items. Set this to true in order to use a markup-based strategy like
 // commenting out whitespace or minifying HTML.
-$inuit-use-markup-fix: false !default;
-
-
-
-
+$global-use-markup-fix: false !default;
 
 /* Default/mandatory classes
    ========================================================================== */
@@ -70,13 +66,13 @@ $inuit-use-markup-fix: false !default;
  */
 
 .o-layout {
-  display: flex;
-  flex-wrap: wrap;
-  margin:  0; /* [2] */
-  padding: 0; /* [2] */
-  list-style: none; /* [1] */
-  margin-left: -$inuit-global-spacing-unit; /* [3] */
-  position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0; /* [2] */
+    padding: 0; /* [2] */
+    list-style: none; /* [1] */
+    margin-left: -$global-spacing-unit; /* [3] */
+    position: relative;
 }
 
 /**
@@ -92,79 +88,69 @@ $inuit-use-markup-fix: false !default;
   */
 
 .o-layout__item {
-  padding-left: $inuit-global-spacing-unit; /* [5] */
+    padding-left: $global-spacing-unit; /* [5] */
 
-  &.o-layout__item--center {
-    justify-content: center;
-  }
+    &.o-layout__item--center {
+        justify-content: center;
+    }
 
-  &.o-layout__item--right {
-    justify-content: flex-end;
-  }
+    &.o-layout__item--right {
+        justify-content: flex-end;
+    }
 
-  &.o-layout__item--left {
-    justify-content: flex-start;
-  }
+    &.o-layout__item--left {
+        justify-content: flex-start;
+    }
 }
-
 
 /* Vertical centered layout items
    ========================================================================== */
 
 .o-layout--vcenter {
-  align-items: center;
+    align-items: center;
 }
 
 /* Gutter size modifiers
    ========================================================================== */
 
 .o-layout--flush {
-  margin-left: 0;
+    margin-left: 0;
 
-  > .o-layout__item {
-    padding-left: 0;
-  }
-
+    > .o-layout__item {
+        padding-left: 0;
+    }
 }
-
 
 .o-layout--tiny {
-  margin-left: -$inuit-global-spacing-unit-tiny;
+    margin-left: -$global-spacing-unit-tiny;
 
-  > .o-layout__item {
-    padding-left: $inuit-global-spacing-unit-tiny;
-  }
-
+    > .o-layout__item {
+        padding-left: $global-spacing-unit-tiny;
+    }
 }
-
 
 .o-layout--small {
-  margin-left: -$inuit-global-spacing-unit-small;
+    margin-left: -$global-spacing-unit-small;
 
-  > .o-layout__item {
-    padding-left: $inuit-global-spacing-unit-small;
-  }
-
+    > .o-layout__item {
+        padding-left: $global-spacing-unit-small;
+    }
 }
-
 
 .o-layout--large {
-  margin-left: -$inuit-global-spacing-unit-large;
+    margin-left: -$global-spacing-unit-large;
 
-  > .o-layout__item {
-    padding-left: $inuit-global-spacing-unit-large;
-  }
-
+    > .o-layout__item {
+        padding-left: $global-spacing-unit-large;
+    }
 }
 
-
 .o-layout--huge {
-  margin-left: -$inuit-global-spacing-unit-huge;
+    margin-left: -$global-spacing-unit-huge;
 
-  > .o-layout__item {
-    padding-left: $inuit-global-spacing-unit-huge;
-  }
-
+    > .o-layout__item {
+        padding-left: $global-spacing-unit-huge;
+    }
 }
 
 /* Fill order modifiers
@@ -175,28 +161,24 @@ $inuit-use-markup-fix: false !default;
  */
 
 .o-layout--center {
-  text-align: center;
-
-  > .o-layout__item {
     text-align: center;
-  }
 
+    > .o-layout__item {
+        text-align: center;
+    }
 }
-
 
 /**
  * Fill up the layout system from the right-hand side.
  */
 
 .o-layout--right {
-  text-align: right;
-
-  > .o-layout__item {
     text-align: right;
-  }
 
+    > .o-layout__item {
+        text-align: right;
+    }
 }
-
 
 /**
  * Fill up the layout system from the left-hand side. This will likely only be
@@ -204,31 +186,24 @@ $inuit-use-markup-fix: false !default;
  */
 
 .o-layout--left {
-  text-align: left;
-
-  > .o-layout__item {
     text-align: left;
-  }
 
+    > .o-layout__item {
+        text-align: left;
+    }
 }
-
 
 /**
  * Reverse the rendered order of the grid system.
  */
 
 .o-layout--reverse {
-  direction: rtl;
+    direction: rtl;
 
-  > .o-layout__item {
-    direction: ltr;
-  }
-
+    > .o-layout__item {
+        direction: ltr;
+    }
 }
-
-
-
-
 
 /* Auto-widths modifier
    ========================================================================== */
@@ -238,11 +213,9 @@ $inuit-use-markup-fix: false !default;
  */
 
 .o-layout--auto {
-
-  > .o-layout__item {
-    width: auto;
-  }
-
+    > .o-layout__item {
+        width: auto;
+    }
 }
 
 /* Media object
@@ -253,9 +226,7 @@ $inuit-use-markup-fix: false !default;
  */
 
 .o-layout--media {
-
     .o-layout__item {
-
         &:last-child {
             flex: 1;
         }
@@ -270,19 +241,17 @@ $inuit-use-markup-fix: false !default;
 
 $flex-orders: 1 2 3 !default;
 
-@if (variable-exists(mq-breakpoints)) {
-
-    @each $inuit-bp-name, $inuit-bp-value in $mq-breakpoints {
-
+@if (variable-exists(global-mq-breakpoints)) {
+    @each $global-bp-name, $global-bp-value in $global-mq-breakpoints {
         @each $numerator in $flex-orders {
             .o-layout__item--order-#{$numerator} {
                 order: #{$numerator} !important;
             }
         }
 
-        @include mq($from: $inuit-bp-name) {
+        @include mq($from: $global-bp-name) {
             @each $numerator in $flex-orders {
-                .o-layout__item--order-#{$numerator}\@#{$inuit-bp-name} {
+                .o-layout__item--order-#{$numerator}\@#{$global-bp-name} {
                     order: #{$numerator} !important;
                 }
             }

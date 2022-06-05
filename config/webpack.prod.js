@@ -25,7 +25,7 @@ module.exports = merge(common, {
                     'postcss-loader',
                     { loader: 'sass-loader',
                         options: {
-                            additionalData: '$env: ' + process.env.SERVER_ENV + ';'
+                            additionalData: '$env: ' + process.env.NODE_ENV + ';'
                         }
                     },
                 ],

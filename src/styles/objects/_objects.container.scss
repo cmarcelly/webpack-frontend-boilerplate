@@ -6,27 +6,27 @@
  * Page-level constraining and wrapping elements.
  */
 
- $inuit-container-width: 1200px !default;
- $container-padding: 50px !default;
- $container-padding-mobile: 20px !default;
+ $global-container-width: 1200px !default;
+ $global-container-padding: 50px !default;
+ $global-container-padding-mobile: 20px !default;
 
- @if (type-of($inuit-container-width) != number) {
-   @error "`#{$inuit-container-width}` needs to be a number.";
+ @if (type-of($global-container-width) != number) {
+   @error "`#{$global-container-width}` needs to be a number.";
  }
 
  .o-container {
    @include inuit-clearfix();
-   padding-right: $container-padding-mobile;
-   padding-left:  $container-padding-mobile;
+   padding-right: $global-container-padding-mobile;
+   padding-left:  $global-container-padding-mobile;
    margin-right: auto;
    margin-left:  auto;
    width: 100%;
-   max-width: $inuit-container-width;
+   max-width: $global-container-width;
    position: relative;
 
    @include mq($from: tablet) {
-     padding-right: rem($container-padding);
-     padding-left:  rem($container-padding);
+     padding-right: rem($global-container-padding);
+     padding-left:  rem($global-container-padding);
    }
 }
 

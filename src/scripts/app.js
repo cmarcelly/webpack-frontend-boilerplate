@@ -6,10 +6,7 @@ class App {
     }
 
     init () {
-        document.documentElement.classList.remove('no-js')
-
-        console.log('NODE_ENV =>', process.env.NODE_ENV)
-        console.log('SERVER_ENV =>', process.env.SERVER_ENV)
+        document.documentElement.classList.remove('no-js');
 
         const parentItem = new ParentObject(document.querySelector('[data-parent]'))
     }
