@@ -1,3 +1,6 @@
+@use 'sass:math';
+@use "sass:list";
+
 /* ==========================================================================
    #HEADINGS
    ========================================================================== */
@@ -8,33 +11,29 @@
  * http://csswizardry.com/2016/02/managing-typography-on-large-apps/).
  */
 
-// We have all of our heading font sizes defined here. Passing these pixel
-// values into our `inuit-font-size()` mixin will generate a rem-based
-// `font-size` with a pixel fallback, as well as generating a `line-height` that
-// will sit on our baseline grid.
-// For fluid responsive design values
-// https://utopia.fyi/
+/**
+ * Generate headings rules with modular scale and vertical rhythm
+ *
+ * 1. https://kittygiraudel.com/2020/05/18/using-calc-to-figure-out-optimal-line-height/
+ *
+ */
 
-h1 {
-  @include fluid-type($min-bp, $max-bp, map-get($headings-font-sizes, 'h1', 'min'), map-get($headings-font-sizes, 'h1', 'max'));
-}
+$steps-count: length($global-type-steps);
+$headings-count: 0;
 
-h2 {
-  @include fluid-type($min-bp, $max-bp, map-get($headings-font-sizes, 'h2', 'min'), map-get($headings-font-sizes, 'h2', 'max'));
-}
+@for $i from 1 through length($global-type-steps) {
 
-h3 {
-  @include fluid-type($min-bp, $max-bp, map-get($headings-font-sizes, 'h3', 'min'), map-get($headings-font-sizes, 'h3', 'max'));
-}
+    @if $i == $global-type-base-index {
+        $headings-count: length($global-type-steps) - $i;
 
-h4 {
-  @include fluid-type($min-bp, $max-bp, map-get($headings-font-sizes, 'h4', 'min'), map-get($headings-font-sizes, 'h4', 'max'));
-}
+        @for $j from 1 through $headings-count {
+            $step: list.nth($global-type-steps,($steps-count - ($j - 1)));
 
-h5 {
-  @include fluid-type($min-bp, $max-bp, map-get($headings-font-sizes, 'h5', 'min'), map-get($headings-font-sizes, 'h5', 'max'));
-}
-
-h6 {
-  @include fluid-type($min-bp, $max-bp, map-get($headings-font-sizes, 'h6', 'min'), map-get($headings-font-sizes, 'h6', 'max'));
+            h#{$j} {
+                font-size: var(--font-size-#{$step});
+                line-height: calc(2px + 2ex + 2px); /* [1] */
+                margin-bottom: .65em;
+            }
+        }
+    }
 }

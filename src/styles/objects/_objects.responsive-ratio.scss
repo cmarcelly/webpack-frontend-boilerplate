@@ -1,8 +1,8 @@
 $global-ratios-breakpoint-separator: \@ !default;
 
-$global-responsive-ratios: null !default;
+$global-responsive-ratios: false !default;
 
-@if ($global-responsive-ratios != null) {
+@if ($global-responsive-ratios != false) {
 
     @each $ratio-name, $ratio-value in $global-responsive-ratios {
 

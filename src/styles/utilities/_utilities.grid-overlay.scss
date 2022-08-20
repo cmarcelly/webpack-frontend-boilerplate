@@ -1,0 +1,21 @@
+@if (global-config(baseline-grid) == true) {
+    body {
+        $color: aqua;
+        $unit: #{clamped($global-min-font-size * $global-line-height, $global-max-font-size * $global-line-height)};
+        background-image: repeating-linear-gradient(
+                0deg,
+                rgba($color, 0.5) 0%,
+                rgba($color, 0.5) 1px,
+                transparent 1px,
+                transparent
+            );
+        background-size: $unit $unit;
+        // font-size: $global-font-size !important;
+
+        // position: absolute;
+        // top: 0;
+        // left: 0;
+        // width: 100%;
+        // min-height: 100vh;
+    }
+}

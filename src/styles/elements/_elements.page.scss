@@ -14,9 +14,10 @@
  * 3. Ensure the page always fills at least the entire height of the viewport.
  */
 
-html {
-    @include fluid-type($min-bp, $max-bp, $font-size, $max-font-size);
-    line-height: $line-height; /* [1] */
+:root {
+    // @include fluid-type($min-bp, $max-bp, $min-font-size, $max-font-size);
+    font-size: var(--font-size-base);
+    line-height: $global-line-height; /* [1] */
     overflow-y: scroll; /* [2] */
     min-height: 100%; /* [3] */
     -webkit-font-smoothing: antialiased;
@@ -35,4 +36,12 @@ a {
     @include u-hocus {
         color: $link-hover-color;
     }
+}
+
+p {
+    margin-bottom: .65em;
+}
+
+small {
+    font-size: var(--font-size-sm);
 }

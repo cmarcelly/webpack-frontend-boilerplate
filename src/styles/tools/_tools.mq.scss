@@ -3,7 +3,7 @@
 
 /// Base font size on the `<body>` element
 /// @type Number (unit)
-$mq-base-font-size: 16px !default;
+$mq-base-font-size: $global-font-size !default;
 
 /// Responsive mode
 ///
