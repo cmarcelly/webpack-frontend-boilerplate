@@ -1,33 +1,55 @@
 /* ==========================================================================
-   #SHARED
-   ========================================================================== */
+#SHARED
+========================================================================== */
 
 /**
- * Shared declarations for certain elements.
- */
+* Shared declarations for certain elements.
+*/
 
 /**
- * Always declare margins in the same direction:
- * csswizardry.com/2012/06/single-direction-margin-declarations
- */
-
+* Always declare margins in the same direction:
+* csswizardry.com/2012/06/single-direction-margin-declarations
+*/
 address,
-h1, h2, h3, h4, h5, h6,
-blockquote, p, pre,
-dl, ol, ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+blockquote,
+p,
+pre,
+dl,
+ol,
+ul,
 figure,
 hr,
 table,
 fieldset {
-  margin-bottom: $global-spacing-unit;
+    margin-bottom: $global-spacing-unit;
 }
 
-
+/**
+* Properties to help prevent overflow layout issues due to long words, names, or URLs.
+*/
+p,
+li,
+h1,
+h2,
+h3,
+h4 {
+    // Help prevent overflow of long words/names/URLs
+    overflow-wrap: break-word;
+    // Optional, not supported for all languages
+    hyphens: auto;
+}
 
 /**
- * Consistent indentation for lists.
- */
-
-dd, ol, ul {
-  margin-left: $global-spacing-unit;
+* Consistent indentation for lists.
+*/
+dd,
+ol,
+ul {
+    margin-left: $global-spacing-unit;
 }

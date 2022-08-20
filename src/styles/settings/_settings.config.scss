@@ -8,6 +8,8 @@
 $global-config: (
   env: $env,
   healthcheck: false,
+  baseline-grid: true,
+  layout-grid: false,
   debug: false,
 );
 

@@ -1,3 +1,5 @@
+@use "sass:list";
+
 ///* ========================================================================
 //   GLOBAL
 //   ======================================================================== */
@@ -9,7 +11,7 @@
 // =============================================================================
 // Standardise some UI treatments.
 // =============================================================================
-$global-radius: 0px !default;
+$global-radius    : 0px !default;
 $global-transition: all 300ms ease-in-out !default;
 
 // =============================================================================
@@ -48,8 +50,8 @@ $assets-path: "../assets/"  !default;
 // =============================================================================
 // Container
 // =============================================================================
-$global-container-width: 2000px;
-$global-container-padding: 50px;
+$global-container-width         : 2000px;
+$global-container-padding       : 50px;
 $global-container-padding-mobile: 20px;
 
 // =============================================================================
@@ -60,17 +62,17 @@ $global-fractions: 1 2 3 4 5;
 // Be aware that enabling offsets produces a large chunk of classes which might
 // bloat your CSS, depending of the amount of breakpoints you defined.
 // Only set this to `true` if you are absolutely sure about what you are doing.
-$global-offsets: true;
+$global-offsets: false;
 
 // =============================================================================
 // Breakpoints for media queries
 // =============================================================================
 $global-mq-breakpoints: (
-    mobile:  576px,
-    tablet:  768px,
-    desktop: 992px,
-    wide:    1200px,
-    huge:    1400px,
+    mobile  : 576px,
+    tablet  : 768px,
+    desktop : 992px,
+    wide    : 1200px,
+    huge    : 1400px,
     enormous: 2500px
 );
 
@@ -82,11 +84,30 @@ $font-sans-serif: sans-serif;
 // =============================================================================
 // Typography
 // =============================================================================
-$font-size:     16px;
-$max-font-size: 24px;
-$line-height:   $max-font-size / $font-size;
-$font-family:   $font-sans-serif;
-$color:       #222222;
+$global-font-size    : 16px;
+$global-line-height  : 1.5;
+$font-family         : $font-sans-serif;
+$color               : #222222;
+
+// Ratio-based Type Scales
+$global-type-ratios: (
+    'minorSecond'    : 1.067,
+    'majorSecond'    : 1.125,
+    'minorThird'     : 1.2,
+    'majorThird'     : 1.25,
+    'perfectFourth'  : 1.333,
+    'augmentedFourth': 1.414,
+    'perfectFifth'   : 1.5,
+    'goldenRatio'    : 1.618,
+);
+// Clamped base (body) font size values min/max
+$global-min-font-size: 16px;
+$global-max-font-size: 20px;
+// Modular scaling min/max
+$global-type-scale-min : map-get($global-type-ratios, 'minorThird');
+$global-type-scale-max : map-get($global-type-ratios, 'perfectFourth');
+$global-type-steps     : 'sm', 'base', 'md', 'lg', 'xl', 'xxl', 'xxxl', 'xxxxl';
+$global-type-base-index: list.index($global-type-steps, 'base');
 
 // =============================================================================
 // Colors utilities
@@ -107,43 +128,53 @@ $max-bp: map-get($global-mq-breakpoints, 'enormous');
 
 $headings-font-sizes: (
   'h1': (
-    'min': 46px,
-    'max': 66px
+    'min': 24px,
+    'max': 24px
   ),
   'h2': (
-    'min': 38px,
-    'max': 48px
+    'min': 22px,
+    'max': 22px
   ),
   'h3': (
-    'min': 28px,
-    'max': 32px
+    'min': 20px,
+    'max': 20px
   ),
   'h4': (
-    'min': 22px,
-    'max': 28px
+    'min': 18px,
+    'max': 18px
   ),
   'h5': (
-    'min': 18px,
-    'max': 26px
+    'min': 16px,
+    'max': 16px
   ),
   'h6': (
     'min': 16px,
-    'max': 24px
+    'max': 16px
   )
 );
 
 // =============================================================================
 // Weights
 // =============================================================================
-$font-weight-light:  300;
+$font-weight-light : 300;
 $font-weight-normal: 400;
 $font-weight-medium: 500;
-$font-weight-bold:   700;
+$font-weight-bold  : 700;
+
+// =============================================================================
+// Images
+// =============================================================================
+// Images are globally fluids for responsive purpose.
+// In case you don't have control over generated `width` and `height` attributes
+// on `<img>` elements in your markup, but still want the images to be fluid,
+// set this to `false`.
+
+$global-static-images: true;
 
 // =============================================================================
 // Transitions
 // =============================================================================
-$speed:  0.3s;
+$speed : 0.3s;
 $easing: $power2EaseOut;
 
 // =============================================================================
@@ -155,4 +186,4 @@ $global-ratios: (
   "16\\:9"  : (16:9)
 );
 
-$global-responsive-ratios: null;
+$global-responsive-ratios: false;

@@ -76,71 +76,72 @@
 
 // SETTINGS
 
-@import "settings/settings.core";
-@import "settings/settings.config";
-@import "settings/settings.eases";
-@import "settings/settings.colors";
-@import "settings/settings.global";
+@import 'settings/settings.core';
+@import 'settings/settings.config';
+@import 'settings/settings.eases';
+@import 'settings/settings.colors';
+@import 'settings/settings.global';
 
 // TOOLS
 
-@import "tools/tools.functions";
-@import "tools/tools.mixins";
-@import "tools/tools.fonts";
-@import "tools/tools.font-size";
-@import "tools/tools.clearfix";
-@import "tools/tools.hidden";
-@import "tools/tools.mq";
-// @import "tools/tools.family";
+@import 'tools/tools.functions';
+@import 'tools/tools.mixins';
+@import 'tools/tools.fonts';
+@import 'tools/tools.font-size';
+@import 'tools/tools.clearfix';
+@import 'tools/tools.hidden';
+@import 'tools/tools.mq';
+@import 'tools/tools.family';
 
 // GENERIC
 
-@import "generic/generic.box-sizing";
-@import "generic/generic.normalize";
-@import "generic/generic.reset";
-@import "generic/generic.shared";
-@import "generic/generic.media";
-@import "generic/generic.form";
-@import "generic/generic.button";
+@import 'node_modules/normalize.css/normalize';
+@import 'generic/generic.reset';
+@import 'generic/generic.shared';
+@import 'generic/generic.type';
+@import 'generic/generic.media';
+@import 'generic/generic.form';
+@import 'generic/generic.button';
 
 // ELEMENTS
 
-@import "elements/elements.fonts";
-@import "elements/elements.page";
-@import "elements/elements.headings";
-@import "elements/elements.images";
-@import "elements/elements.tables";
+@import 'elements/elements.fonts';
+@import 'elements/elements.page';
+@import 'elements/elements.headings';
+@import 'elements/elements.images';
+@import 'elements/elements.tables';
 
 // OBJECTS
 
-@import "objects/objects.container";
-@import "objects/objects.layout";
-@import "objects/objects.media";
-@import "objects/objects.flag";
-@import "objects/objects.list-bare";
-@import "objects/objects.list-inline";
-@import "objects/objects.box";
-@import "objects/objects.block";
-@import "objects/objects.ratio";
-@import "objects/objects.responsive-ratio";
-@import "objects/objects.crop";
-@import "objects/objects.table";
-@import "objects/objects.pack";
+@import 'objects/objects.container';
+@import 'objects/objects.layout';
+@import 'objects/objects.media';
+@import 'objects/objects.flag';
+@import 'objects/objects.list-bare';
+@import 'objects/objects.list-inline';
+@import 'objects/objects.box';
+@import 'objects/objects.block';
+@import 'objects/objects.ratio';
+@import 'objects/objects.responsive-ratio';
+@import 'objects/objects.crop';
+@import 'objects/objects.table';
+@import 'objects/objects.pack';
 
 // COMPONENTS
 //
 // Build and include your project’s UI components here.
-@import "components/components.buttons";
+@import 'components/components.buttons';
 
 // UTILITIES
 
-@import "utilities/utilities.clearfix";
-@import "utilities/utilities.widths";
-@import "utilities/utilities.headings";
-@import "utilities/utilities.spacings";
-@import "utilities/utilities.responsive-spacings";
-@import "utilities/utilities.align";
-@import "utilities/utilities.colors";
-@import "utilities/utilities.print";
-@import "utilities/utilities.hide";
-@import "utilities/utilities.healthcheck";
+@import 'utilities/utilities.clearfix';
+@import 'utilities/utilities.widths';
+@import 'utilities/utilities.headings';
+@import 'utilities/utilities.spacings';
+@import 'utilities/utilities.responsive-spacings';
+@import 'utilities/utilities.align';
+@import 'utilities/utilities.colors';
+@import 'utilities/utilities.print';
+@import 'utilities/utilities.hide';
+@import 'utilities/utilities.healthcheck';
+@import 'utilities/utilities.grid-overlay';
