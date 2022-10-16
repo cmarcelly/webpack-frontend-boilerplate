@@ -1,6 +1,6 @@
 .c-button {
   padding: rem(15px) rem(20px);
-  background-color: $black;
+  background-color: $color-darkest;
 
   @include u-hocus {
       background-color: red;

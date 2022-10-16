@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 $global-ratios-breakpoint-separator: \@ !default;
 
 $global-responsive-ratios: false !default;
@@ -21,7 +23,7 @@ $global-responsive-ratios: false !default;
                 @include mq($from: $global-bp-name) {
 
                     .o-ratio--#{$ratio-name}#{$global-ratios-breakpoint-separator}#{$global-bp-name}:before {
-                        padding-bottom: ($consequent/$antecedent) * 100%;
+                        padding-bottom: math.div($consequent, $antecedent) * 100%;
                     }
 
                 }

@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 /* ==========================================================================
    #CROP
    ========================================================================== */
@@ -137,7 +139,7 @@ $global-crops: (
     }
 
     .o-crop--#{$crop-name} {
-      padding-bottom: ($consequent/$antecedent) * 100%;
+      padding-bottom: math.div($consequent, $antecedent) * 100%;
     }
 
   }

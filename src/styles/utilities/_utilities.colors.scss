@@ -18,8 +18,8 @@ $global-color-properties: (
 );
 
 $global-colors-variants: (
-    '-white': $white,
-    '-black': $black
+    '-white': $color-lightest,
+    '-black': $color-darkest
 ) !default;
 
 @if ($global-color-utilities != null) {

@@ -1,23 +1,37 @@
 @use "sass:list";
 
-///* ========================================================================
-//   GLOBAL
-//   ======================================================================== */
-
+// ==========================================================================
+// Settings / Global Config
+//
 // The global settings file contains any project-wide variables; things that
 // need to be made available to the entire codebase.
+// ==========================================================================
 
+// Context
+// =============================================================================
+
+// The current stylesheet context. Available values: frontend, editor.
+$context: frontend  !default;
+
+// Path is relative to the stylesheets directory.
+$assets-path: "../"  !default;
+
+// Typefaces
+// =============================================================================
+
+// Font directory
+$font-dir: "../fonts/";
+
+// Font fallbacks (retrieved from systemfontstack.com on 2022-05-31)
+$font-fallback-sans:    -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+$font-fallback-serif:   Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+$font-fallback-mono:    Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
 
 // =============================================================================
 // Standardise some UI treatments.
 // =============================================================================
 $global-radius    : 0px !default;
 $global-transition: all 300ms ease-in-out !default;
-
-// =============================================================================
-// Path is relative to the stylesheets directory.
-// =============================================================================
-$assets-path: "../assets/"  !default;
 
 // =============================================================================
 // Need responsive spacings utilities? Customize them here!
@@ -115,8 +129,8 @@ $global-type-base-index: list.index($global-type-steps, 'base');
 $global-color-utilities: true;
 
 $global-colors-variants: (
-    '-white': $white,
-    '-black': $black
+    '-white': $color-lightest,
+    '-black': $color-darkest
 );
 
 // =============================================================================
@@ -175,7 +189,7 @@ $global-static-images: true;
 // Transitions
 // =============================================================================
 $speed : 0.3s;
-$easing: $power2EaseOut;
+$easing: $ease-power2-out;
 
 // =============================================================================
 // Ratios

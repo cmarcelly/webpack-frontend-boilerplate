@@ -31,10 +31,10 @@
 }
 
 a {
-    color: $link-color;
+    color: $color-link;
 
     @include u-hocus {
-        color: $link-hover-color;
+        color: $color-link-hover;
     }
 }
 
