@@ -144,6 +144,8 @@ $global-type-scale-max : map-get($global-type-ratios, 'perfectFourth');
 $global-type-steps     : 'sm', 'base', 'md', 'lg', 'xl', 'xxl', 'xxxl', 'xxxxl';
 $global-type-base-index: list.index($global-type-steps, 'base');
 
+$modular-scaled-types: true;
+
 // =============================================================================
 // Colors utilities
 // =============================================================================

@@ -22,25 +22,6 @@ $type-base: $global-font-size;
 $type-steps: $global-type-steps;
 $type-base-index: $global-type-base-index;
 
-@function rnd($number, $places: 0) {
-    $n: 1;
-    @if $places > 0 {
-        @for $i from 1 through $places {
-        $n: $n * 10;
-        }
-    }
-    @return math.div(math.round($number * $n), $n);
-}
-
-@function clamped($min-px, $max-px, $min-bp: $default-min-bp, $max-bp: $default-max-bp) {
-    $slope: math.div(($max-px - $min-px), ($max-bp - $min-bp));
-    $slope-vw: rnd($slope * 100, 2);
-    $intercept-rems: rnd(rem($min-px - $slope * $min-bp), 2);
-    $min-rems: rnd(rem($min-px), 2);
-    $max-rems: rnd(rem($max-px), 2);
-    @return clamp(#{$min-rems}, #{$slope-vw}vw + #{$intercept-rems}, #{$max-rems});
-}
-
 // =============================================================================
 // Processing headings
 // =============================================================================
