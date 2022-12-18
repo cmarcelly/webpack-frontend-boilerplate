@@ -2,6 +2,37 @@
   #HEADINGS
   ========================================================================== */
 
+// .u-h1 {
+//   font-size: slamp(map-get($headings-font-sizes, 'h1', 'min'), map-get($headings-font-sizes, 'h1', 'max'), $min-bp, $max-bp);
+// }
+
+// .u-h2 {
+//   font-size: slamp(map-get($headings-font-sizes, 'h2', 'min'), map-get($headings-font-sizes, 'h2', 'max'), $min-bp, $max-bp);
+// }
+
+// .u-h3 {
+//   font-size: slamp(map-get($headings-font-sizes, 'h3', 'min'), map-get($headings-font-sizes, 'h3', 'max'), $min-bp, $max-bp);
+// }
+
+// .u-h4 {
+//   font-size: slamp(map-get($headings-font-sizes, 'h4', 'min'), map-get($headings-font-sizes, 'h4', 'max'), $min-bp, $max-bp);
+// }
+
+// .u-h5 {
+//   font-size: slamp(map-get($headings-font-sizes, 'h5', 'min'), map-get($headings-font-sizes, 'h5', 'max'), $min-bp, $max-bp);
+// }
+
+// .u-h6 {
+//   font-size: slamp(map-get($headings-font-sizes, 'h6', 'min'), map-get($headings-font-sizes, 'h6', 'max'), $min-bp, $max-bp);
+// }
+
+@use 'sass:math';
+@use "sass:list";
+
+/* ==========================================================================
+   #HEADINGS
+   ========================================================================== */
+
 /**
 * Redefine all of our basic heading styles against utility classes so as to
 * allow for double stranded heading hierarchy, e.g. we semantically need an H2,
@@ -11,26 +42,35 @@
 *
 */
 
-.u-h1 {
-  @include fluid-type($min-bp, $max-bp, map-get($headings-font-sizes, 'h1', 'min'), map-get($headings-font-sizes, 'h1', 'max'));
-}
+/**
+ * Simple default styles for headings 1 through 6. Anything more opinionated
+ * than simple font-size changes should likely be applied via classes (see:
+ * http://csswizardry.com/2016/02/managing-typography-on-large-apps/).
+ */
 
-.u-h2 {
-  @include fluid-type($min-bp, $max-bp, map-get($headings-font-sizes, 'h2', 'min'), map-get($headings-font-sizes, 'h2', 'max'));
-}
+/**
+ * Generate headings rules with modular scale and vertical rhythm
+ *
+ * 1. https://kittygiraudel.com/2020/05/18/using-calc-to-figure-out-optimal-line-height/
+ *
+ */
 
-.u-h3 {
-  @include fluid-type($min-bp, $max-bp, map-get($headings-font-sizes, 'h3', 'min'), map-get($headings-font-sizes, 'h3', 'max'));
-}
+$steps-count: length($global-type-steps);
+$headings-count: 0;
 
-.u-h4 {
-  @include fluid-type($min-bp, $max-bp, map-get($headings-font-sizes, 'h4', 'min'), map-get($headings-font-sizes, 'h4', 'max'));
-}
+@for $i from 1 through length($global-type-steps) {
 
-.u-h5 {
-  @include fluid-type($min-bp, $max-bp, map-get($headings-font-sizes, 'h5', 'min'), map-get($headings-font-sizes, 'h5', 'max'));
-}
+    @if $i == $global-type-base-index {
+        $headings-count: length($global-type-steps) - $i;
 
-.u-h6 {
-  @include fluid-type($min-bp, $max-bp, map-get($headings-font-sizes, 'h6', 'min'), map-get($headings-font-sizes, 'h6', 'max'));
+        @for $j from 1 through $headings-count {
+            $step: list.nth($global-type-steps,($steps-count - ($j - 1)));
+
+            .u-h#{$j} {
+                font-size: var(--font-size-#{$step});
+                line-height: calc(2px + 2ex + 2px); /* [1] */
+                margin-bottom: .65em;
+            }
+        }
+    }
 }

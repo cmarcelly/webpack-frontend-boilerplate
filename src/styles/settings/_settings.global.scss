@@ -48,18 +48,6 @@ $font-faces: (
     (Source Sans, "SourceSans3-BoldIt",    700, italic),
 );
 
-// Font Size Method: Responsive or Fluid (clamp())
-// Possible values: responsive | fluid
-// =============================================================================
-
-$TYPE-SIZE-METHOD: 'fluid';
-
-@if ($TYPE-SIZE-METHOD == 'fluid') {
-    // @import '';
-} @else { // responsive
-    // @import '';
-}
-
 // =============================================================================
 // Standardise some UI treatments.
 // =============================================================================

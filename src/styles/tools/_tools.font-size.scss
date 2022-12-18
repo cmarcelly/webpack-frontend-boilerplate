@@ -73,22 +73,3 @@
         }
     }
 }
-
-// ==========================================================================
-// Fluid Typography Mixin using clamp()
-// Source: https://chriskirknielsen.com/blog/modern-fluid-typography-with-clamp/
-// ==========================================================================
-
-@mixin fluid-type($min-vw, $max-vw, $min-value, $max-value) {
-    $factor: math.div(1, ($max-vw - $min-vw)) * ($max-value - $min-value);
-    $calc-value: unquote(
-        "#{ $min-value - ($min-vw * $factor) } + #{ 100vw * $factor }"
-    );
-
-    font-size: $min-value; // Fallback for older browsers
-    font-size: clamp(
-        #{if($min-value > $max-value, $max-value, $min-value)},
-        #{$calc-value},
-        #{if($min-value > $max-value, $min-value, $max-value)}
-    );
-}

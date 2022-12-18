@@ -15,13 +15,16 @@
  */
 
 :root {
-    // @include fluid-type($min-bp, $max-bp, $min-font-size, $max-font-size);
-    font-size: var(--font-size-base);
+    font-size: $global-font-size;
     line-height: $global-line-height; /* [1] */
     overflow-y: scroll; /* [2] */
     min-height: 100%; /* [3] */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-size: slamp($global-min-font-size, $global-max-font-size, $min-bp, $max-bp);
 }
 
 ::selection {

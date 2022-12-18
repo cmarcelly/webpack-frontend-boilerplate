@@ -51,6 +51,6 @@ $type-base-index: $global-type-base-index;
         $power: $i - $type-base-index;
         $min: $type-base-min * math.pow($type-scale-min, $power);
         $max: $type-base-max * math.pow($type-scale-max, $power);
-        --font-size-#{$step}: #{clamped($min, $max)};
+        --font-size-#{$step}: #{slamp($min, $max)};
     }
 }

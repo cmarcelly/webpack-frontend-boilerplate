@@ -29,7 +29,7 @@ module.exports = merge(common, {
                     { loader: 'sass-loader',
                         options: {
                             sourceMap: true,
-                            additionalData: '$env: ' + process.env.NODE_ENV + ';'
+                            additionalData: '$env: ' + process.env.SERVER_ENV + ';'
                         }
                     },
                 ],
