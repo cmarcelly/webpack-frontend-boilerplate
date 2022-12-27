@@ -16,6 +16,11 @@ $context: frontend  !default;
 // Path is relative to the stylesheets directory.
 $assets-path: "../assets/"  !default;
 
+// Baseline
+// =============================================================================
+
+$global-baseline: 6px;
+
 // Typefaces
 // =============================================================================
 
@@ -124,6 +129,10 @@ $global-line-height  : 1.5;
 $font-family         : $font-sans-serif;
 $color               : #222222;
 
+// =============================================================================
+// Modulat scaling rules
+// =============================================================================
+
 // Ratio-based Type Scales
 $global-type-ratios: (
     'minorSecond'    : 1.067,
@@ -135,13 +144,15 @@ $global-type-ratios: (
     'perfectFifth'   : 1.5,
     'goldenRatio'    : 1.618,
 );
+
 // Clamped base (body) font size values min/max
 $global-min-font-size: 16px;
 $global-max-font-size: 20px;
+
 // Modular scaling min/max
 $global-type-scale-min : map-get($global-type-ratios, 'minorThird');
 $global-type-scale-max : map-get($global-type-ratios, 'perfectFourth');
-$global-type-steps     : 'sm', 'base', 'md', 'lg', 'xl', 'xxl', 'xxxl', 'xxxxl';
+$global-type-steps     : 'sm', 'base', 'md', 'lg', 'xl', '2xl', '3xl', '4xl';
 $global-type-base-index: list.index($global-type-steps, 'base');
 
 $modular-scaled-types: true;
