@@ -2,7 +2,7 @@
 @use "sass:list";
 
 /* ==========================================================================
-   Modular scale & vertical rhythm configuration
+   Fluid headings with modular scaling
    Source: https://www.aleksandrhovhannisyan.com/blog/fluid-type-scale-with-css-clamp/
    Github: https://github.com/AleksandrHovhannisyan/fluid-type-scale-calculator
    ========================================================================== */
@@ -32,7 +32,7 @@ $type-base-index: $global-type-base-index;
         $power: $i - $type-base-index;
         $min: $type-base-min * math.pow($type-scale-min, $power);
         $max: $type-base-max * math.pow($type-scale-max, $power);
-        --font-size-#{$step}: #{slamp($min, $max)};
+        --font-size-#{$step}: #{slamp($min, $max, $default-min-bp, $default-max-bp)};
     }
 }
 

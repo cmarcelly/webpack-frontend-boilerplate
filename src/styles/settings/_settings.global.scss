@@ -146,7 +146,7 @@ $global-type-ratios: (
 );
 
 // Clamped base (body) font size values min/max
-$global-min-font-size: 16px;
+$global-min-font-size: 18px;
 $global-max-font-size: 20px;
 
 // Modular scaling min/max
@@ -156,6 +156,24 @@ $global-type-steps     : 'sm', 'base', 'md', 'lg', 'xl', '2xl', '3xl', '4xl';
 $global-type-base-index: list.index($global-type-steps, 'base');
 
 $modular-scaled-types: true;
+
+$global-space-steps: (
+    '3xs': 0.25,
+    '2xs': 0.5,
+    'xs' : 0.75,
+    's'  : 1,
+    'm'  : 1.5,
+    'l'  : 2,
+    'xl' : 3,
+    '2xl': 4,
+    '3xl': 6
+);
+
+// Optional, just comment if not needed
+$global-space-pairs-custom-steps: (
+    's': 'l',
+    'xl': '3xl'
+);
 
 // =============================================================================
 // Colors utilities

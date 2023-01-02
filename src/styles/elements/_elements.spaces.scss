@@ -1,0 +1,54 @@
+@use 'sass:math';
+@use "sass:list";
+
+/* ==========================================================================
+   Fluid spaces with modular scaling
+   Source: https://www.aleksandrhovhannisyan.com/blog/fluid-type-scale-with-css-clamp/
+   Github: https://github.com/AleksandrHovhannisyan/fluid-type-scale-calculator
+   ========================================================================== */
+
+// Recommended starting point
+$type-base-min: $global-min-font-size;
+$type-base-max: $global-max-font-size;
+
+$type-scale-min: $global-type-scale-min;
+$type-scale-max: $global-type-scale-max;
+
+// Default min and max breakpoint to clamp
+$default-min-bp: map-get($global-mq-breakpoints, 'mobile');
+$default-max-bp: map-get($global-mq-breakpoints, 'enormous');
+
+$space-steps: $global-space-steps;
+
+// =============================================================================
+// Processing spaces
+// =============================================================================
+
+:root {
+    @each $key, $value in $space-steps {
+        --space-#{$key}: #{slamp(math.round($type-base-min * $value), math.round($type-base-max * $value), $default-min-bp, $default-max-bp)};
+    }
+
+    // Space value pairs - single steps
+    $counter: 1;
+    $steps-keys: map-keys($space-steps);
+    @each $key, $value in $space-steps {
+
+        @if $counter < length($space-steps) {
+            $next-index: $counter + 1;
+            $next-max-value: map-get($space-steps, nth($steps-keys, $next-index));
+            --space-#{$key}-#{nth($steps-keys, $next-index)}: #{slamp(math.round($type-base-min * $value), math.round($type-base-max * $next-max-value), $default-min-bp, $default-max-bp)};
+        }
+
+        $counter: $counter + 1;
+    }
+
+    // Space value pairs - custom steps
+    @if variable-exists(global-space-pairs-custom-steps) {
+        $custom-space-steps: $global-space-pairs-custom-steps;
+
+        @each $key, $value in $custom-space-steps {
+            --space-#{$key}-#{$value}: #{slamp(math.round($type-base-min * map-get($space-steps, $key)), math.round($type-base-max * map-get($space-steps, $value)), $default-min-bp, $default-max-bp)};
+        }
+    }
+}
