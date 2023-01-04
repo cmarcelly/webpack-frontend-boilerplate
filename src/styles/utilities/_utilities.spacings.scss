@@ -59,3 +59,18 @@ $global-spacing-sizes: (
   }
 
 }
+
+// Custom properties
+// @each $property-namespace, $property in $global-spacing-properties {
+
+//   @each $direction-namespace, $direction-rules in $global-spacing-directions {
+
+//     @each $key, $value in $global-space-steps {
+//         .u-#{$property-namespace}#{$direction-namespace}-#{$key} {
+//             color: white;
+//         }
+//     }
+
+//   }
+
+// }

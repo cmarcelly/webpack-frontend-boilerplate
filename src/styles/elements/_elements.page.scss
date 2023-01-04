@@ -24,7 +24,7 @@
 }
 
 body {
-    font-size: slamp($global-min-font-size, $global-max-font-size, $min-bp, $max-bp);
+    font-size: slamp($global-min-font-size, $global-max-font-size, $global-default-min-bp, $global-default-max-bp);
 }
 
 ::selection {

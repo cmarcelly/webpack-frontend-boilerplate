@@ -919,8 +919,8 @@ $unit-options-map: (
 
 $defaults_slamp_options: (
     "root-size": $global-font-size,
-    "min": $min-bp,
-    "max": $max-bp,
+    "min": $global-default-min-bp,
+    "max": $global-default-max-bp,
 );
 
 $slamp_options: () !default;
@@ -953,11 +953,11 @@ $slamp_options: () !default;
 
     @if $intersection != 0 {
         @return clamp(
-            #{$minSizeRem},
-            #{rem($intersection)} + #{$slope * 100vw},
-            #{$maxSizeRem}
+            #{decimal-round($minSizeRem, 2)},
+            #{decimal-round(rem($intersection), 2)} + #{decimal-round($slope * 100vw, 2)},
+            #{decimal-round($maxSizeRem, 2)}
         );
     } @else {
-        @return clamp(#{$minSizeRem}, #{$slope * 100vw}, #{$maxSizeRem});
+        @return clamp(#{decimal-round($minSizeRem, 2)}, #{decimal-round($slope * 100vw, 2)}, #{decimal-round($maxSizeRem, 2)});
     }
 }

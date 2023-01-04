@@ -3,27 +3,27 @@
   ========================================================================== */
 
 // .u-h1 {
-//   font-size: slamp(map-get($headings-font-sizes, 'h1', 'min'), map-get($headings-font-sizes, 'h1', 'max'), $min-bp, $max-bp);
+//   font-size: slamp(map-get($headings-font-sizes, 'h1', 'min'), map-get($headings-font-sizes, 'h1', 'max'), $global-default-min-bp, $global-default-max-bp);
 // }
 
 // .u-h2 {
-//   font-size: slamp(map-get($headings-font-sizes, 'h2', 'min'), map-get($headings-font-sizes, 'h2', 'max'), $min-bp, $max-bp);
+//   font-size: slamp(map-get($headings-font-sizes, 'h2', 'min'), map-get($headings-font-sizes, 'h2', 'max'), $global-default-min-bp, $global-default-max-bp);
 // }
 
 // .u-h3 {
-//   font-size: slamp(map-get($headings-font-sizes, 'h3', 'min'), map-get($headings-font-sizes, 'h3', 'max'), $min-bp, $max-bp);
+//   font-size: slamp(map-get($headings-font-sizes, 'h3', 'min'), map-get($headings-font-sizes, 'h3', 'max'), $global-default-min-bp, $global-default-max-bp);
 // }
 
 // .u-h4 {
-//   font-size: slamp(map-get($headings-font-sizes, 'h4', 'min'), map-get($headings-font-sizes, 'h4', 'max'), $min-bp, $max-bp);
+//   font-size: slamp(map-get($headings-font-sizes, 'h4', 'min'), map-get($headings-font-sizes, 'h4', 'max'), $global-default-min-bp, $global-default-max-bp);
 // }
 
 // .u-h5 {
-//   font-size: slamp(map-get($headings-font-sizes, 'h5', 'min'), map-get($headings-font-sizes, 'h5', 'max'), $min-bp, $max-bp);
+//   font-size: slamp(map-get($headings-font-sizes, 'h5', 'min'), map-get($headings-font-sizes, 'h5', 'max'), $global-default-min-bp, $global-default-max-bp);
 // }
 
 // .u-h6 {
-//   font-size: slamp(map-get($headings-font-sizes, 'h6', 'min'), map-get($headings-font-sizes, 'h6', 'max'), $min-bp, $max-bp);
+//   font-size: slamp(map-get($headings-font-sizes, 'h6', 'min'), map-get($headings-font-sizes, 'h6', 'max'), $global-default-min-bp, $global-default-max-bp);
 // }
 
 @use 'sass:math';

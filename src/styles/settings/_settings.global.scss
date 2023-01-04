@@ -62,35 +62,35 @@ $global-transition: all 300ms ease-in-out !default;
 // =============================================================================
 // Need responsive spacings utilities? Customize them here!
 // =============================================================================
-// $global-responsive-spacing-properties: (
-//   "padding": "padding",
-//   "margin": "margin",
-// );
+$global-responsive-spacing-properties: (
+  "padding": "padding",
+  "margin": "margin",
+);
 
-// $global-responsive-spacing-directions : (
-//   null: null,
-//   "-top": "-top",
-//   "-right": "-right",
-//   "-bottom": "-bottom",
-//   "-left": "-left",
-//   "-horizontal": "-left" "-right",
-//   "-vertical": "-top" "-bottom",
-// );
+$global-responsive-spacing-directions : (
+  null: null,
+  "-top": "-top",
+  "-right": "-right",
+  "-bottom": "-bottom",
+  "-left": "-left",
+  "-horizontal": "-left" "-right",
+  "-vertical": "-top" "-bottom",
+);
 
-// $global-responsive-spacing-sizes: (
-//   null: $global-spacing-unit,
-//   "-tiny": $global-spacing-unit-tiny,
-//   "-small": $global-spacing-unit-small,
-//   "-large": $global-spacing-unit-large,
-//   "-huge": $global-spacing-unit-huge,
-//   "-enormous": $global-spacing-unit-enormous,
-//   "-none": 0
-// );
+$global-responsive-spacing-sizes: (
+  null: $global-spacing-unit,
+  "-tiny": $global-spacing-unit-tiny,
+  "-small": $global-spacing-unit-small,
+  "-large": $global-spacing-unit-large,
+  "-huge": $global-spacing-unit-huge,
+  "-enormous": $global-spacing-unit-enormous,
+  "-none": 0
+);
 
 // =============================================================================
 // Container
 // =============================================================================
-$global-container-width         : 2000px;
+$global-container-max-width         : 2000px;
 $global-container-padding       : 50px;
 $global-container-padding-mobile: 20px;
 
@@ -132,6 +132,10 @@ $color               : #222222;
 // =============================================================================
 // Modulat scaling rules
 // =============================================================================
+
+// Default breakpoints bracket for fluid behavior
+$global-default-min-bp: map-get($global-mq-breakpoints, 'mobile');
+$global-default-max-bp: map-get($global-mq-breakpoints, 'enormous');
 
 // Ratio-based Type Scales
 $global-type-ratios: (
@@ -189,8 +193,6 @@ $global-colors-variants: (
 // Fluid typography
 // Global settings for fluid typography mixin
 // =============================================================================
-$min-bp: map-get($global-mq-breakpoints, 'mobile');
-$max-bp: map-get($global-mq-breakpoints, 'enormous');
 
 $headings-font-sizes: (
   'h1': (
