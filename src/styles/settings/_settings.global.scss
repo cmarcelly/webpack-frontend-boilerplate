@@ -130,7 +130,7 @@ $font-family         : $font-sans-serif;
 $color               : #222222;
 
 // =============================================================================
-// Modulat scaling rules
+// Fluid values & modular scaling rules
 // =============================================================================
 
 // Default breakpoints bracket for fluid behavior
@@ -156,11 +156,14 @@ $global-max-font-size: 20px;
 // Modular scaling min/max
 $global-type-scale-min : map-get($global-type-ratios, 'minorThird');
 $global-type-scale-max : map-get($global-type-ratios, 'perfectFourth');
+
+// Fluid types
 $global-type-steps     : 'sm', 'base', 'md', 'lg', 'xl', '2xl', '3xl', '4xl';
 $global-type-base-index: list.index($global-type-steps, 'base');
 
-$modular-scaled-types: true;
+// $modular-scaled-types: true;
 
+// Fluid spaces
 $global-space-steps: (
     '3xs': 0.25,
     '2xs': 0.5,
@@ -180,6 +183,18 @@ $global-space-pairs-custom-steps: (
 );
 
 // =============================================================================
+// Colors scales
+// =============================================================================
+
+// $global-scale-color-steps: 4;
+// $global-scale-color-amount: 15%;
+
+// $global-scale-colors: (
+//     'primary': $color-primary,
+//     'secondary': $color-secondary
+// );
+
+// =============================================================================
 // Colors utilities
 // =============================================================================
 $global-color-utilities: true;
@@ -194,32 +209,32 @@ $global-colors-variants: (
 // Global settings for fluid typography mixin
 // =============================================================================
 
-$headings-font-sizes: (
-  'h1': (
-    'min': 24px,
-    'max': 24px
-  ),
-  'h2': (
-    'min': 22px,
-    'max': 22px
-  ),
-  'h3': (
-    'min': 20px,
-    'max': 20px
-  ),
-  'h4': (
-    'min': 18px,
-    'max': 18px
-  ),
-  'h5': (
-    'min': 16px,
-    'max': 16px
-  ),
-  'h6': (
-    'min': 16px,
-    'max': 16px
-  )
-);
+// $headings-font-sizes: (
+//   'h1': (
+//     'min': 24px,
+//     'max': 24px
+//   ),
+//   'h2': (
+//     'min': 22px,
+//     'max': 22px
+//   ),
+//   'h3': (
+//     'min': 20px,
+//     'max': 20px
+//   ),
+//   'h4': (
+//     'min': 18px,
+//     'max': 18px
+//   ),
+//   'h5': (
+//     'min': 16px,
+//     'max': 16px
+//   ),
+//   'h6': (
+//     'min': 16px,
+//     'max': 16px
+//   )
+// );
 
 // =============================================================================
 // Weights

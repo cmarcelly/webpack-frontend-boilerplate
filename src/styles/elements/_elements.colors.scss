@@ -1,0 +1,22 @@
+@use 'sass:math';
+
+/* ==========================================================================
+   Fluid headings with modular scaling
+   ========================================================================== */
+
+// @if variable-exists(global-scale-colors) {
+
+//     :root {
+//         @each $key, $value in $global-scale-colors {
+//             $color-scale: ();
+//             @for $i from 1 through ($global-scale-color-steps*2) {
+//                 $lighten-amount: ($i * 10%);
+//                 $color-scale: append($color-scale, lighten($value, $lighten-amount));
+//             }
+
+//             @each $color, $index in $color-scale {
+//                 --color-#{$key}-#{$index}00: #{$color};
+//             }
+//         }
+//     }
+// }

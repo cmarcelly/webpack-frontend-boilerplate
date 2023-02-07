@@ -1,29 +1,44 @@
 // ==========================================================================
 // Settings / Config / Colors
-// ==========================================================================
-
-// Palette
 // =============================================================================
 
+// Dominant color (primary color, brand color)
+// =============================================================================
+$color-primary: #023047;
+
+// Set of colors for more creative options (secondary color, tertiary color, ...)
+// =============================================================================
+$color-secondary: #219ebc;
+$color-tertiary : #8ecae6;
+
+// Accent color (emphasize actions and highlights infos)
+// =============================================================================
+$color-accent: #fb8500;
+
+// Semantic colors (warning, error, success, info)
+// =============================================================================
+$color-semantic-warning: orange;
+$color-semantic-error  : red;
+$color-semantic-success: green;
+$color-semantic-info   : blue;
+
+// Neutral colors (for text and background)
+// =============================================================================
 $color-lightest: #FFFFFF;
-$color-darkest : #000000;
-
-// Specific
-// =============================================================================
+$color-darkest: #000000;
 
 // Link
-$color-link      : #1A0DAB;
-$color-link-focus: #1A0DAB;
-$color-link-hover: darken(#1A0DAB, 10%);
+$color-link      : $color-primary;
+$color-link-focus: $color-primary;
+$color-link-hover: darken($color-primary, 10%);
 
 // Selection
 $selection-text-color      : #FFFFFF;
-$selection-background-color: #3297FD;
+$selection-background-color: $color-secondary;
 
 // Social Colors
 // =============================================================================
-
-$facebook-color : #3B5998;
-$instagram-color: #E1306C;
-$youtube-color  : #CD201F;
-$twitter-color  : #1DA1F2;
+$color-facebook : #3B5998;
+$color-instagram: #E1306C;
+$color-youtube  : #CD201F;
+$color-twitter  : #1DA1F2;
