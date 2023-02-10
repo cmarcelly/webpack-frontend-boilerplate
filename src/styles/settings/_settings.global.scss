@@ -90,9 +90,15 @@ $global-responsive-spacing-sizes: (
 // =============================================================================
 // Container
 // =============================================================================
-$global-container-max-width         : 2000px;
+$global-container-max-width     : 2000px;
 $global-container-padding       : 50px;
 $global-container-padding-mobile: 20px;
+
+// =============================================================================
+// Grid
+// =============================================================================
+$global-grid-columns   : 12;
+$global-grid-column-gap: $global-spacing-unit;
 
 // =============================================================================
 // Widths fractions

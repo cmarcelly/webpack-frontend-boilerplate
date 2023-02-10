@@ -21,6 +21,18 @@
     min-height: 100%; /* [3] */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    // Grid
+    --grid-columns:     4;
+    --grid-gutter:      #{rem(10px)};
+    --grid-gutter-half: calc(0.5 * var(--grid-gutter));
+    --grid-margin:      #{rem(10px)};
+
+    @include mq($from: tablet) {
+        --grid-columns:     #{$global-grid-columns};
+        --grid-gutter:      #{rem(16px)};
+        --grid-margin:      #{rem(20px)};
+    }
 }
 
 body {
